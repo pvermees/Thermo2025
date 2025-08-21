@@ -11,7 +11,7 @@ bibliography: /home/pvermees/Dropbox/biblio.bib
 <!-- rmarkdown::render('handout.Rmd','bookdown::pdf_document2') -->
 
 ```{r eval=TRUE, echo=FALSE}
-knitr::opts_chunk$set(fig.pos="H")
+knitr::opts_chunk$set(fig.pos="H", warning=FALSE)
 set.seed(23)
 knitr::opts_knit$set(root.dir = "../R")
 ```

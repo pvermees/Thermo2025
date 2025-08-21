@@ -11,50 +11,48 @@
 # ThU = geometric Th/U ratio and its dispersion
 # nU = geometric mean U cps and its dispersion
 # Note: tt, sigma and prop are only used if pop does NOT equal 1...6
-getpop <- function(pop=0,plot='none',method='fissiontracks',
-                   tt=c(50,100),sigma=c(0,0.5),prop=c(0.5,0.5),
-                   trunc=c(FALSE,TRUE),zeta=350e-6,
-                   rhoD=2.5e6,N=c(100,0.3),
-                   ThU=c(1,0.1),nU=c(10000,0.3)){
-    if (!missing(pop)){
-        if (pop==1){
-            tt <- 100
-            sigma <- 0
-            prop <- 1
-            trunc <- FALSE
-        } else if (pop==2){
-            tt <- 100
-            sigma <- 0.5
-            prop <- 1
-            trunc <- FALSE
-        } else if (pop==3){
-            tt <- c(100,200)
-            sigma <- c(0,0)
-            prop <- c(1,1)/2
-            trunc <- c(FALSE,FALSE)
-        } else if (pop %in% 5:6){
-            tt <- c(100,300)
-            sigma <- c(0.2,0.3)
-            if (pop==5){
-                prop <- c(0.3,0.7)
-            } else if (pop==6){
-                prop <- c(0.7,0.3)
-            }
-            trunc <- c(FALSE,FALSE)
-        }
+getpop <- function(pop=1,tt,sigma,prop,
+                   plot='none',method='fissiontracks',
+                   zeta=350e-6,rhoD=2.5e6,N=c(100,0.3),
+                   ThU=c(1,0.1),nU=c(10000,0.3),
+                   from=20,to=500){
+    if (pop==1){
+        if (missing(tt)) tt <- 100
+        sigma <- 0
+        prop <- 1
+        trunc <- FALSE
+    } else if (pop==2){
+        if (missing(tt)) tt <- 100
+        if (missing(sigma)) sigma <- 0.5
+        prop <- 1
+        trunc <- FALSE
+    } else if (pop==3){
+        if (missing(tt) || length(tt)<2) tt <- c(100,200)
+        if (missing(sigma) || length(sigma)<2) sigma <- c(0,0)
+        if (missing(prop) || length(prop)<2) prop <- c(1,1)/2
+        trunc <- c(FALSE,FALSE)
+    } else if (pop==4) {
+        if (missing(tt) || length(tt)<2) tt <- c(50,100)
+        if (missing(sigma) || length(sigma)<2) sigma <- c(0,0.5)
+        if (missing(prop) || length(prop)<2) prop <- c(0.5,0.5)
+        trunc <- c(FALSE,TRUE)
+    } else if (pop==5){
+        if (missing(tt) || length(tt)<2) tt <- c(100,300)
+        if (missing(sigma) || length(sigma)<2) sigma <- c(0.2,0.3)
+        if (missing(prop) || length(prop)<2) prop <- c(0.3,0.7)
+        trunc <- c(FALSE,FALSE)
+    } else if (pop==6){
+        if (missing(tt) || length(tt)<2) tt <- c(100,300)
+        if (missing(sigma) || length(sigma)<2) sigma <- c(0.2,0.3)
+        if (missing(prop) || length(prop)<2) prop <- c(0.7,0.3)
+        trunc <- c(FALSE,FALSE)
     }
     prop <- prop/sum(prop) # normalise
-    if (plot%in%c('ages','dates')){
-        m <- 20
-        M <- 1000
-        xx <- exp(seq(from=log(m),to=log(M),length.out=200))
-        yy <- 0*xx
-        plot(x=c(m,M),y=c(0,1),type='n',log='x',
-             bty='n',xlab='age (Ma)',ylab='',yaxt='n')
-        if (pop==4){
-            xx <- sort(c(xx,tt[1],tt[1]+1e-5))
-            yy <- 0*xx
-        }
+    xx <- exp(seq(from=log(from),to=log(to),length.out=200))
+    if (pop==4){
+        xx <- sort(c(xx,tt[1],tt[1]+1e-5))
+    }
+    if (plot %in% c('ages','dates')){
         if (identical(method,'fissiontracks')){
             mut <- t2mu(tt=tt,zeta=zeta,rhoD=rhoD)
             mux <- t2mu(tt=xx,zeta=zeta,rhoD=rhoD)
@@ -64,29 +62,22 @@ getpop <- function(pop=0,plot='none',method='fissiontracks',
         } else {
             stop('Unrecognised method.')
         }
-    }
-    if (plot=='ages'){
-        if (pop==1){
-            lines(x=c(m,tt,tt,tt,M),y=c(0,0,1,0,0),lwd=2)
+        if (pop %in% c(1,3)){
+            yy <- seq(from=0,to=1,length.out=length(xx))
         } else if (pop==2){
             yy <- dnorm(mux,mean=mut,sd=sigma)
-            lines(x=xx,y=yy,lwd=2)
-        } else if (pop==3){
-            lines(x=c(m,tt[1],tt[1],tt[1],tt[2],tt[2],tt[2],M),
-                  y=c(0,0,1,0,0,1,0,0),lwd=2)
         } else if (pop==4){
-            yy <- dtrunc(mux,mean=mut[2],sd=sigma[2],minx=mut[1])
-            lines(x=xx,y=yy,lwd=2)
-            lines(x=c(m,tt[1],tt[1],tt[1],M),
-                  y=c(0,0,1,0,0),lwd=2)
-        } else if (pop%in%5:6){
+            yy <- dtrunc(log(xx),mean=mut[2],sd=sigma[2],minx=mut[1])
+        } else if (pop %in% 5:6){
             np <- length(prop)
+            yy <- 0*xx
             for (i in 1:np){
                 yy <- yy + prop[i]*dnorm(mux,mean=mut[i],sd=sigma[i])
             }
-            lines(x=xx,y=yy,lwd=2)
         }
-    } else if (plot=='dates'){
+    }
+    if (plot == 'dates'){
+        yy <- 0*xx
         for (i in which(sigma>0)){
             pa <- dtrunc(mux,mean=mut[i],sd=sigma[i],
                          minx=ifelse(trunc[i],mut[i-1],-Inf))
@@ -106,7 +97,27 @@ getpop <- function(pop=0,plot='none',method='fissiontracks',
             ynew <- dnorm(mux,mean=mut[i],sd=cv)
             yy <- yy + prop[i]*ynew/sum(ynew)
         }
-        lines(x=xx,y=yy/max(yy),lwd=2)
+    }
+    if (plot=='ages'){
+        plot(x=xx,y=yy,type='n',log='x',bty='n',
+             xlab='age (Ma)',ylab='',yaxt='n')
+        if (pop==1){
+            lines(x=c(from,tt,tt,tt,to),y=c(0,0,1,0,0),lwd=2)
+        } else if (pop==2){
+            lines(x=xx,y=yy,lwd=2)
+        } else if (pop==3){
+            lines(x=c(from,tt[1],tt[1],tt[1],tt[2],tt[2],tt[2],to),
+                  y=c(0,0,1,0,0,1,0,0),lwd=2)
+        } else if (pop==4){
+            lines(x=xx,y=yy,lwd=2)
+            lines(x=c(from,tt[1],tt[1],tt[1],to),
+                  y=c(0,0,1,0,0),lwd=2)
+        } else if (pop %in% 5:6){
+            lines(x=xx,y=yy,lwd=2)
+        }
+    } else if (plot=='dates'){
+        plot(x=xx,y=yy,type='l',log='x',bty='n',
+             xlab='date (Ma)',ylab='',yaxt='n',lwd=2)
     }
     invisible(data.frame(t=tt,sigma=sigma,prop=prop,trunc=trunc))
 }
