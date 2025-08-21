@@ -1,0 +1,1661 @@
+---
+title: "Statistics for (detrital) thermochronology"
+author: Pieter Vermeesch
+date: 3 September 2023
+output:
+  bookdown::pdf_document2:
+    extra_dependencies: ["float","caption"]
+bibliography: /home/pvermees/Dropbox/biblio.bib
+---
+
+<!-- rmarkdown::render('handout.Rmd','bookdown::pdf_document2') -->
+
+```{r eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(fig.pos="H")
+set.seed(23)
+knitr::opts_knit$set(root.dir = "../R")
+```
+
+\section{Introduction to \texttt{R}}
+
+This short course will include some practical exercises that use the
+programming environment `R`. You can download the teaching materials
+from
+[https://github.com/pvermees/Thermo2025/](https://github.com/pvermees/Thermo2025/),
+including a copy of these notes, example input files and an auxiliary
+script called `helper.R` with `R` functions to generate synthetic
+fission track and U-Th-He data. This section of the handout provides
+the basic knowledge of `R` that is needed to use these resources.
+
+\subsection{RStudio}
+
+`R` is a free and open statistical programming language that was
+inspired by the commercial `S` language. `R` is popular for data
+science. We will use the RStudio IDE (Integrated Development
+Environment) to interact with `R` because it provides a uniform user
+experience across a wide range of operating systems, including
+Windows, MacOS and Linux (Figure \ref{fig:rstudio}). R and RStudio
+can be downloaded free of charge from
+[https://posit.co/downloads/](https://posit.co/downloads/).
+
+\begin{figure}[H]
+```{r rstudio, out.width = "100%", echo=FALSE}
+knitr::include_graphics("../handout/Screenshot.pdf")
+```
+\caption{RStudio has four sub-windows: 1) a scripting editor, 2) the console, 3) the workspace environment and command history, and 4) plots, file browser and documentation viewer.}
+\label{fig:rstudio}
+\end{figure}
+
+\subsection{\texttt{IsoplotR}}
+
+\texttt{IsoplotR} is an \texttt{R} package for radiometric
+geochronology [@vermeesch2018c]. It includes functionality for fission
+tracks, U-Th-He and many other chronometers. The package can be
+installed from the Comprehensive R Archive Network (CRAN), by entering
+the following command in the console:
+
+```{r eval=FALSE}
+install.packages("IsoplotR")
+```
+
+Additionally, a graphical user interface for \texttt{IsoplotR} can be
+installed as:
+
+```{r eval=FALSE}
+install.packages("IsoplotRgui")
+```
+
+Once the package has been installed (which only needs to be done
+once), it can be added to the \texttt{R} workspace by running the
+following command at the console (which needs to be done for every
+\texttt{R}-session that uses the package):
+
+```{r eval=TRUE}
+library("IsoplotR")
+```
+
+\texttt{IsoplotR} can be used in three different ways:
+
+1. Online, at [https://isoplotr.es.ucl.ac.uk](https://isoplotr.es.ucl.ac.uk)
+
+2. Offline, by entering the following code in the console:
+
+   ```{r eval=FALSE}
+   IsoplotRgui::IsoplotR()
+   ```
+
+3. Using the command-line API (Applications Programming Interface).
+
+   The remainder of this tutorial will introduce the API for
+   \texttt{IsoplotR} (and another package called \texttt{provenance}),
+   which enables power users to create automation scripts and extend
+   the functionality of the two packages beyond the capabilities of
+   the visual interfaces.
+
+\subsection{Basic \texttt{R}}
+
+1. We will start this tutorial from the `R` console (panel 1 in Figure
+\ref{fig:rstudio}). First, do some arithmetic:
+
+   ```{r eval=TRUE}
+   1 + 1
+   ```
+
+   `R` prints the result (`2` in this case) to the
+   console\footnote{The save space, the notes will not always
+   reproduce the output.}. Here are some other arithmetic operations:
+
+   ```{r eval=TRUE}
+   sqrt(2)
+   exp(log(10))
+   13%%5
+   ```
+
+1. An arrow operator is used to assign a value to a variable. Note
+that the arrow can point both ways:
+
+   ```{r eval=TRUE}
+   foo <- 2
+   4 -> bar
+   foo <- foo*bar
+   foo
+   ```
+
+1. Create a vector of numbers:
+
+   ```{r eval=TRUE}
+   myvec <- c(2,4,6,8)
+   myvec*2
+   ```
+
+   Query the third value of the vector:
+
+   ```{r eval=FALSE}
+   myvec[3]
+   ```
+
+   Change the third value of the vector:
+
+   ```{r eval=FALSE}
+   myvec[3] <- 100
+   ```
+
+   Change the second and the third value of the vector:
+
+   ```{r eval=FALSE}
+   myvec[c(2,3)] <- c(100,101)
+   ```
+
+   Create a sequence of numbers:
+
+   ```{r eval=TRUE}
+   seq(from=1,to=10,by=1)
+   ```
+
+   Equivalently:
+
+   ```{r eval=FALSE}
+   seq(1,10,1)
+   seq(1,10)
+   seq(to=10,by=1,from=1)
+   seq(to=10)
+   1:10
+   ```
+
+   Create a 10-element vector of twos:
+
+   ```{r eval=FALSE}
+   rep(2,10)
+   ```
+
+1. Create a 2 $\times$ 4 matrix of ones:
+
+   ```{r eval=TRUE}
+   mymat <- matrix(1,nrow=2,ncol=4)
+   ```
+
+   Change the third value in the first row of `mymat` to 3:
+
+   ```{r eval=TRUE}
+   mymat[1,3] <- 3
+   ```
+
+   Change the entire second column of `mymat` to 2:
+
+   ```{r eval=TRUE}
+   mymat[,2] <- 2
+   ```
+
+   Remove the first column from `mymat`:
+
+   ```{r eval=TRUE}
+   mymat[,-1]
+   ```
+
+   Give names to the rows:
+
+   ```{r eval=TRUE}
+   rownames(mymat) <- c('first','second')
+   ```
+
+   Use the names:
+
+   ```{r eval=TRUE}
+   mymat['first',]
+   ```
+
+   The transpose of `mymat`:
+
+   ```{r eval=TRUE}
+   t(mymat)
+   ```
+
+   Element-wise multiplication (`*`) vs. matrix multiplication (`|%*%|`):
+
+   ```{r eval=TRUE}
+   mymat*mymat
+   ```
+
+   ```{r eval=TRUE}
+   p <- mymat %*% t(mymat)
+   p
+   ```
+
+   The inverse and determinant of a square matrix:
+
+   ```{r eval=TRUE}
+   invp <- solve(p)
+   det(invp %*% p)
+   ```
+
+1. Lists are used to store more complex data objects:
+
+   ```{r eval=TRUE}
+   mylist <- list(v=myvec,m=mymat,nine=9)
+   mylist$v
+   ```
+
+   or, equivalently:
+
+   ```{r eval=FALSE}
+   mylist[[1]]
+   mylist[['v']]
+   ```
+
+   Data frames are list-like tables:
+
+   ```{r eval=TRUE}
+   myframe <- data.frame(
+   	   period=c('Cz','Mz','Pz','PC'),
+	   SrSr=c(0.708,0.707,0.709,0.708),
+	   fossils=c(TRUE,TRUE,TRUE,FALSE)
+	   )
+   myframe
+   ```
+
+   You can access the items in `myframe` either like a list or like a
+   matrix:
+
+   ```{r eval=TRUE}
+   myframe$period == myframe[,'period']
+   ```
+
+1. Save data to a text (`.csv`) file:
+
+   ```{r eval=FALSE}
+   write.csv(myframe,file='timescale.csv',row.names=FALSE)
+   ```
+
+   Read data from a `.csv` file:
+
+   ```{r eval=FALSE}
+   myframe2 <- read.csv(file='timescale.csv',header=TRUE)
+   ```
+
+   Type `myframe2` at the console to verify that the contents of this
+   new variable match those of `myframe`.
+  
+1. Plot the first against the second row of `mymat`:
+
+   ```{r eval=FALSE}
+   plot(x=mymat[1,],y=mymat[2,])
+   ```
+
+   Draw lines between the points shown on the existing plot:
+
+   ```{r eval=FALSE}
+   lines(mymat[1,],mymat[2,])
+   ```
+
+   Create a new plot with red lines but no points and a 1:1 aspect ratio
+   for the X- and Y-axis:
+
+   ```{r eval=FALSE}
+   plot(mymat[1,],mymat[2,],type='l',col='red',asp=1)
+   ```
+
+   Save the currently active plot as a vector-editable `.pdf` file:
+
+   ```{r eval=FALSE}
+   dev.copy2pdf(file="trigonometry.pdf")
+   ```
+
+1. If you want to learn more about a function, type `help` or `?`:
+
+   ```{r eval=FALSE}
+   help(c)
+   ?plot
+   ```
+
+   You can also define your own functions:
+
+   ```{r eval=TRUE}
+   cube <- function(n){ return(n^3) }
+   ```
+
+   Using the newly created function:
+
+   ```{r eval=TRUE}
+   cube(2)
+   result <- cube(3)
+   ```
+
+1. Type the following lines in RStudio's file editor (panel 1 of
+Figure \ref{fig:rstudio}) and save them in a file called `myscript.R`:
+
+   ```{r eval=FALSE}
+   # the 'print' function is needed to show intermediate
+   # results when running commands from a .R file
+   print(pi)
+   ```
+
+   You can run this code by going back to the console and typing:
+
+   ```{r eval=TRUE}
+   source("myscript.R")
+   ```
+
+   Note that everything that follows the `#`-symbol is ignored by `R`.
+
+1. Conditional statements. Replace the contents of `myscript.R` with:
+
+   ```{r eval=FALSE}
+   toss <- function(){
+   	r <- runif(1) # create a random number between 0 and 1
+        if (r<0.5){
+       	   print("head")
+       	} else {
+       	   print("tail")
+        }
+   }
+   ```
+
+   Save and run in the console:
+
+   ```{r eval=FALSE}
+   source('myscript.R')
+   toss()
+   ```
+
+1. Add the following function to `myscript.R`:
+
+   ```{r eval=FALSE}
+   fibonnaci <- function(n=5){ # 5 is the default value
+      if (n < 3) { stop("n must be at least 3") }
+      # seed the output vector with 0 and 1:
+      s <- c(0,1)
+      # loop through all numbers from 3 to n:
+      for (i in 3:n){
+         s[i] <- s[i-1] + s[i-2]
+      }
+      return(s)
+   }
+   ```
+
+   Save and run in the console to calculate the first `n` numbers in
+   the Fibonnaci series:
+
+   ```{r eval=FALSE}
+   source('myscript.R')
+   fibonnaci(10)
+   ```
+
+\section{Ages vs. dates}
+
+In statistics, an important distinction is made between the
+\emph{true} values of estimated parameters, and their
+\emph{estimates}. In geochronology, these concepts are referred to as
+\emph{ages} and \emph{dates}, respectively\footnote{In reality, the
+terms 'age' and 'date' are often used interchangeably, because their
+meaning is usually clear from the context.}.
+
+\subsection{Age estimation and error propagation}
+
+Consider the following fission track data:
+
+\begin{center}
+\begin{tabular}{ll}
+true values & measured data\\ \hline
+$\rho_s=1\times{10}^{6}$ cm$^{-2}$ &
+$N_s=15$ \\
+$\rho_i=2\times{10}^{6}$ cm$^{-2}$ &
+$N_i=42$ \\
+$\rho_d=2.5\times{10}^{6}$ cm$^{-2}$ &
+$\hat{\rho}_d=2.55\pm{0.05}\times{10}^{6}$ cm$^{-2}$ \\
+$\zeta=350$ yr$^{-1}$cm$^{2}$ &
+$\hat{\zeta}=355\pm{10}$ yr$^{-1}$cm$^{2}$
+\end{tabular}
+\end{center}
+
+This gives rise to an age of:
+<!-- l38 <- 0.000155125; log(1+0.5*350*l38*2.5*1/2)/l38 -->
+\begin{equation}
+t = \frac{1}{\lambda_{238}}\ln\!\left(1+\frac{1}{2}
+\lambda_{238}\zeta\rho_d\frac{\rho_s}{\rho_i}\right) = 215\mbox{~Ma}
+\label{eq:FTage}
+\end{equation}
+
+and a date of:
+<!-- l38 <- 0.000155125; log(1+0.5*355*l38*2.55*15/42)/l38 -->
+\begin{equation}
+\hat{t} = \frac{1}{\lambda_{238}}\ln\!\left(1+\frac{1}{2}
+\lambda_{238}\hat{\zeta}\hat{\rho}_d\frac{N_s}{N_i}\right) = 160\mbox{~Ma}
+\label{eq:FTdate}
+\end{equation}
+
+It is impossible to use the date without some estimate of its
+\emph{precision}, which provides a way to guess its likely proximity
+to the true age. For the fission track method, the analytical
+uncertainty (standard error) of a date is estimated as follows:
+<!-- 160 * sqrt(1/15+1/42+(0.05/2.55)^2+(10/350)^2) -->
+\begin{equation}
+s[\hat{t}] = \hat{t}\sqrt{\frac{1}{N_s}+\frac{1}{N_i}+
+\left(\frac{s[\hat{\zeta}]}{\hat{\zeta}}\right)^2+
+\left(\frac{s[\hat{\rho}_d]}{\hat{\rho}_d}\right)^2}
+= 48~\mbox{Ma}
+\end{equation}
+
+The U-Th-He method is based on the following ingrowth equation:
+\begin{equation}
+\begin{split}
+\left[\mbox{He}\right] & = a(t) \mbox{[U]} + b(t) \mbox{[Th]} \\
+\mbox{~where~} a(t) & = 8 \frac{137.818}{138.818} (e^{\lambda_{238}t} - 1) +
+      	     	   7 \frac{1}{138.818} (e^{\lambda_{235}t} - 1) \\
+\mbox{~and~} b(t) & = 6 (e^{\lambda_{232}t} - 1)
+\end{split}
+\label{eq:U-Th-He}
+\end{equation}
+
+in which [U], [Th] and [He] have the same atomic units (e.g., fmol,
+\textmu mol/g). Equation \ref{eq:U-Th-He} does not have an analytical
+solution but can be solved iteratively. Error propagation is done by
+first order Taylor approximation:
+\begin{equation}
+s[\hat{t}] = 
+\frac{\sqrt{a(\hat{t})^2s[\mbox{U}]^2 + 2a(\hat{t})b(\hat{t})s[\mbox{U,Th}] + b(\hat{t})^2s[\mbox{Th}]^2 + s[\mbox{He}]^2}}
+     {8 \frac{137.818}{138.818} \lambda_{238} e^{\lambda_{238}\hat{t}} +
+      7 \frac{\lambda_{235}}{138.818} e^{\lambda_{235}\hat{t}}}
+\label{eq:stHe}
+\end{equation}
+
+where $s[\mbox{U,Th}]$ is the covariance of the U and Th measurements.
+
+Using `IsoplotR`, geochronological data can be loaded into memory with
+the `read.data()` function. Before running following code, it is
+important to add `IsoplotR` to the workspace and set the working
+directory to the location of your input files. This can either be done
+by clicking on the `Session` $\rightarrow$ `Set Working Directory`
+menu in RStudio and ticking the `IsoplotR` box in the `Packages` tab
+(fourth panel of Figure \ref{fig:rstudio}), or by entering the
+following commands at the beginning of your `R` script:
+
+```{r eval=FALSE}
+library(IsoplotR)
+setwd("/home/pieter/Thermo2023") # replace the string with your own path
+```
+```{r eval=TRUE,echo=FALSE}
+library(IsoplotR)
+```
+
+Then load the `FT.csv` file into memory as follows:
+
+```{r eval=TRUE}
+FTdat <- read.data("data/FT.csv",method="fissiontracks")
+```
+
+Calculate the dates\footnote{\texttt{IsoplotR} uses the \texttt{age()}
+function to calculate dates because \texttt{date()} already exists as
+an \texttt{R} function!} and uncertainties:
+
+```{r eval=TRUE}
+FTdates <- age(FTdat)
+head(FTdates) # print the first few rows
+```
+
+Similarly, for U-Th-He data:
+
+```{r eval=TRUE}
+Hedat <- read.data("data/UThHe.csv",method="U-Th-He")
+Hedates <- age(Hedat)
+```
+
+\subsection{Populations}
+
+A single date is not enough for geochronology in general, and for
+detrital thermochronology in particular. As we saw at the end of the
+previous section, the `age()` function returns a table of age
+estimates and uncertainties. This section will introduce three ways to
+visualise distributions of multiple dates.  Let us consider the
+following five age \emph{populations}, where the word 'population'
+refers to the (unknowable) distribution of the true ages that would be
+observed if an infinite number of aliquots (i.e. apatite crystals)
+were dated with infinite precision and no bias:
+
+1. A single discrete age component: the true ages of all the apatite
+crystals from this sample are exactly 100 Ma.
+
+2. A continuous distribution of ages: the true ages span a range of
+values, with most grains being ca. 100 Ma, but some being younger or
+older.
+
+3. A discrete mixture of two age components: half of the sample
+consists of 100 Ma grains, the other half of the crystals are 200 Ma.
+
+4. A mixture of discrete and continuous age components: 50% of the
+grains have a true age of 50 Ma, and the remaining 50% have a range of
+ages around 100 Ma. This population contains no true ages younger than
+50 Ma, so the older subpopulation is \emph{truncated} at 50 Ma.
+
+5. A mixture of continuous age components: 50% of the grains are
+derived from a continuous population with a true fission ages around
+100 Ma, whereas the remaining 50% are derived from a 300 Ma peak, with
+tails to higher and lower values. Note that, unlike population 4,
+crystals from the young peak are allowed to be older than those from
+the old peak and vice versa.
+
+The Probability Density Functions (PDFs) of the five populations are
+shown in Figure \ref{fig:fivepops}.
+
+\begin{figure}[H]
+```{r fivepops, fig.width=7.5, fig.height=1.25, out.width = "100%", eval=TRUE, echo=FALSE}
+source("helper.R")
+par(mfrow=c(1,5),mar=c(3,2,0,1),mgp=c(2,1,0))
+for (i in 1:5){
+    getpop(pop=i,plot="ages")
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+}
+```
+\caption{Five theoretical age populations.}
+\label{fig:fivepops}
+\end{figure}
+
+You can reproduce these plots using the `getpop()` function of the
+auxiliary `helper.R` script. For example:
+
+```{r eval=FALSE}
+source("helper.R")
+getpop(pop=4,plot="ages")
+```
+
+The PDFs of the age populations (Figure \ref{fig:fivepops}) are
+unknowable truths, the essential features of which we must try to
+infer from a finite number of imprecisely dated samples. It is
+important to note that the distribution of the dates is not the same
+as the distribution of the ages. Let us explore this crucial fact with
+another function of `helper.R`, called `FTsamp()`. This function can
+be used to draw synthetic samples from the populations of Figure
+\ref{fig:fivepops}. For example, to draw a 50-grain fission track
+sample from population 1:
+
+```{r eval=TRUE}
+FTsample <- FTsamp(pop=1,ng=50)
+```
+
+`FTsamp()` returns a list containing the following items:
+
+```{r eval=TRUE}
+names(FTsample)
+```
+
+`FTsample$t.true` is a vector containing the true ages. Inspecting
+this list at the console for the above example reveals that it
+contains 50 identical values of 100 Ma, exactly as expected from
+Figure \ref{fig:fivepops}:
+
+```{r eval=TRUE}
+head(FTsample$t.true)
+```
+
+`FTsample$x` contains random realisations of the spontaneous and
+induced track counts for the 50 synthetic grains:
+
+```{r eval=TRUE}
+head(FTsample$x)
+```
+
+`FTsample` is actually a special type of list. It behaves as an
+'object' of class `fissiontracks`, which is recognised by `IsoplotR`
+and can be directly passed on to its `age()` function:
+
+```{r eval=TRUE}
+FTdates <- age(FTsample)
+head(FTdates)
+```
+
+From the first six entries of `FTdates` you can already see that,
+whereas the ages are all the same, the dates are not! Importantly, the
+addition of analytical uncertainty has caused the dates to be
+\emph{more dispersed} than the ages. `helper.R` also contains a
+function called `UThHesamp()` to generate synthetic U-Th-He data.
+
+Under certain simplifying assumptions, it is possible to predict the
+PDF of the dates from the PDF of the ages (Figure
+\ref{fig:fiveFTdatepops}) by setting `plot="dates"` in `getpop()`:
+
+```{r eval=FALSE}
+getpop(pop=1,plot="dates",method="fissiontracks")
+```
+
+\begin{figure}[H]
+```{r fiveFTdatepops, fig.width=7.5, fig.height=1.25, out.width = "100%", eval=TRUE, echo=FALSE}
+par(mfrow=c(1,5),mar=c(3,2,0,1),mgp=c(2,1,0))
+for (i in 1:5){
+    getpop(pop=i,plot="dates",N=c(100,0))
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+}
+```
+\caption{Predicted PDFs of the fission track dates for the age distributions of Figure \ref{fig:fivepops}, under the simplifying assumption that $N_s+N_i=100$.}
+\label{fig:fiveFTdatepops}
+\end{figure}
+
+Similarly, for the U-Th-He method:
+
+```{r eval=FALSE}
+getpop(pop=1,plot="dates",method="U-Th-He")
+```
+
+which produces Figure \ref{fig:fiveHedatepops}.
+
+\begin{figure}[h]
+```{r fiveHedatepops, fig.width=7.5, fig.height=1.25, out.width = "100%", eval=TRUE, echo=FALSE}
+par(mfrow=c(1,5),mar=c(3,2,0,1),mgp=c(2,1,0))
+for (i in 1:5){
+    getpop(pop=i,plot="dates",method="U-Th-He",ThU=c(1,0),nU=c(500,0))
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+}
+```
+\caption{Predicted PDFs of the U-Th-He dates for the age distributions of Figure \ref{fig:fivepops}.}
+\label{fig:fiveHedatepops}
+\end{figure}
+
+Note how the PDFs of the ages (Figure \ref{fig:fiveFTdatepops}) are
+more similar to the PDFs of the U-Th-He dates (Figure
+\ref{fig:fiveHedatepops}) than to the PDFs of the fission track dates
+(Figure \ref{fig:fiveFTdatepops}). This is because the U-Th-He method
+exhibits much smaller analytical uncertainties than the fission track
+method.
+
+\section{Plotting data}\label{sec:plotting}
+
+The previous section showed that the PDF of the dates is unknowable,
+just like the PDF of the ages. This section will introduce three
+graphical devices that are used to visualise the population of the
+dates. Section \ref{sec:mixtures} will introduce statistical tools to
+infer properties of the ages populations from the dates.
+
+\subsection{Kernel Density Estimates}\label{sec:KDE}
+
+A KDE is a graphical device that produces a continuous line, which
+approximates the PDF of the dates from a limited number of values
+[@vermeesch2012b].
+\begin{equation}
+\mbox{KDE}(x) = \frac{1}{nh\sqrt{2\pi}}
+\sum_{j=1}^{n}
+\exp
+\left[
+-\frac{1}{2}
+\left(
+\frac{x-\hat{t}_j}{h}
+\right)^2
+\right]
+\end{equation}
+
+where $h$ is the so-called \emph{bandwidth} of the KDE, which serves a
+similar purpose as the bin width of a histogram. Using `IsoplotR`:
+
+```{r KDEages, eval=FALSE, echo=TRUE}
+kde(FTdates,log=TRUE)
+```
+
+where the logarithmic transformation is useful to prevent the KDE to
+overlap into physically impossible negative values. Collecting five
+random samples of 25 values from population 1 produces five KDEs that
+all look slightly different from each other (Figure
+\ref{fig:fiveFTsamples1}).
+
+\begin{figure}[h]
+```{r fiveFTsamples1, fig.width=7.5, fig.height=1.35, out.width = "100%", eval=TRUE, echo=FALSE}
+par(mfrow=c(1,5),mar=c(3,2,1,1),mgp=c(2,1,0))
+FTsamps <- list()
+for (i in 1:5){
+    FTsamps[[i]] <- FTsamp(pop=1,ng=25,N=c(100,0))
+    kde(FTsamps[[i]],from=20,to=1000,log=TRUE)
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+}
+```
+\caption{KDEs of five random fission track samples from population
+1. To ensure comparability with Figure \ref{fig:fiveFTdatepops},
+$N_s+N_i=100$ for each sample. Although all five samples were drawn
+from the same population, their KDEs look slightly different.}
+\label{fig:fiveFTsamples1}
+\end{figure}
+
+Generating KDEs for all five populations (Figure \ref{fig:fiveFTsamples2})
+produces density estimates that hardly resemble the theoretically
+predicted PDFs of Figure \ref{fig:fiveFTdatepops}.
+
+\begin{figure}
+```{r fiveFTsamples2, fig.width=7.5, fig.height=1.35, out.width = "100%", eval=TRUE, echo=FALSE}
+par(mfrow=c(1,5),mar=c(3,2,1,1),mgp=c(2,1,0))
+FTsamps <- list()
+for (i in 1:5){
+    FTsamps[[i]] <- FTsamp(pop=i,ng=25,N=c(100,0))
+    kde(FTsamps[[i]],from=20,to=1000,log=TRUE)
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+}
+```
+\caption{KDEs of five random fission track samples from populations 1
+through 5. To ensure comparability with Figure
+\ref{fig:fiveFTdatepops}, $N_s+N_i=100$ for each sample. Note how the
+multimodality of populations 3, 4 and 5 has been smoothed out and lost.}
+\label{fig:fiveFTsamples2}
+\end{figure}
+
+For the U-Th-He method:
+
+```{r, eval=FALSE}
+kde(Hedates,log=TRUE)
+```
+
+Repeating this for five random samples from the age populations of Figure \ref{fig:fivepops} yields five KDEs (Figure \ref{fig:fiveHesamples}) that resemble the PDFs of Figure \ref{fig:fiveHedatepops} to different degrees.
+
+\begin{figure}[H]
+```{r fiveHesamples, fig.width=7.5, fig.height=1.35, out.width = "100%", eval=TRUE, echo=FALSE}
+par(mfrow=c(1,5),mar=c(3,2,1,1),mgp=c(2,1,0))
+Hesamps <- list()
+for (i in 1:5){
+    Hesamps[[i]] <- UThHesamp(pop=i,ng=25,ThU=c(1,0),nU=c(500,0))
+    kde(Hesamps[[i]],from=20,to=1000,log=TRUE)
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+}
+```
+\caption{KDEs of five random U-Th-He samples from populations 1 through 5.}
+\label{fig:fiveHesamples}
+\end{figure}
+
+The KDEs of the first three samples of Figure \ref{fig:fiveHesamples}
+resembles their respective populations reasonably well. The same
+cannot be said about samples 4 and 5, whose KDEs smooth out their
+bimodal populations.
+
+*Exercise*: Generate some KDEs of your own using `helper.R`'s
+`FTsamp()` and `UThHesamp()` function, and `IsoplotR`'s `kde()`
+function. Type `?kde` at the console to view the documentation. Use
+the optional arguments to complete the following tasks:
+
+1. Construct a KDE for a random fission track sample from population 5, first using a linear scale and then using a logarithmic scale.
+
+2. Create KDEs for U-Th-He population 4 using sample sizes of 20, 100 and 500, plotted on a logarithmic scale.
+
+3. Create KDEs for U-Th-He population 4 using custom bandwidths of 10, 1 and 100 Ma, plotted on a linear scale.
+
+\subsection{Cumulative Age Distributions}\label{sec:CAD}
+
+Constructing a KDE requires choosing a kernel bandwidth. Although a
+plethora of 'automatic' bandwidth selection algorithms exist, none of
+these work optimally in all cases. This is evident from the mismatch
+between the shape of the KDEs and PDFs of fission track samples 3, 4
+and 5 (Figure \ref{fig:fiveFTsamples2}), and U-Th-He samples 4 and 5
+(Figure \ref{fig:fiveHesamples}).
+
+The issue of bandwidth selection can be completely avoided by plotting
+the data as an Empirical Cumulative Distribution Function (ECDF) or
+Cumulative Age Distribution (CAD):
+\begin{equation}
+\mbox{CAD}(x) = \frac{1}{n}\sum\limits_{j=1}^{n} I(\hat{t}_j<x)
+\label{eq:ECDF}
+\end{equation}
+
+where $I(\ast) = 1$ if $\ast$ is 'true' and $I(\ast) = 0$ if $\ast$ is
+'false'. Using `IsoplotR`:
+
+```{r eval=FALSE, echo=TRUE}
+cad(FTdates)
+```
+
+Figure \ref{fig:fiveFTcads} plots the fission track samples of Figure
+\ref{fig:fiveFTsamples2} as CADs.
+
+\begin{figure}
+```{r fiveFTcads, fig.width=7.5, fig.height=1.35, out.width = "100%", eval=TRUE, echo=FALSE}
+par(mfrow=c(1,5),mar=c(3,2,0,1),mgp=c(2,1,0))
+for (i in 1:5){
+    cad(FTsamps[[i]],xlim=c(0,500),bty='n')
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+}
+```
+\caption{CADs of the samples of Figure \ref{fig:fiveFTsamples2}.}
+\label{fig:fiveFTcads}
+\end{figure}
+
+Figure \ref{fig:fiveHecads} repeats the same exercise for the U-Th-He samples of Figure \ref{fig:fiveHesamples}.
+
+\begin{figure}[H]
+```{r fiveHecads, fig.width=7.5, fig.height=1.35, out.width = "100%", eval=TRUE, echo=FALSE}
+par(mfrow=c(1,5),mar=c(3,2,0,1),mgp=c(2,1,0))
+for (i in 1:5){
+    cad(Hesamps[[i]],xlim=c(0,500),bty='n')
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+}
+```
+\caption{CADs of the samples of Figure \ref{fig:fiveHesamples}.}
+\label{fig:fiveHecads}
+\end{figure}
+
+Peaks of the KDEs correspond to steep segments of the cumulative
+distributions. Because the cumulative step functions do not require
+kernel smoothing, they make it easier to identify multiple modes in a
+distribution of noisy data. It is indeed easy to spot the two modes of
+samples 3, 4 and 5 in Figure \ref{fig:fiveHecads}. Unfortunately,
+things are not so straightforward for the fission track data of Figure
+\ref{fig:fiveFTcads}.
+
+It is interesting to note that the CAD has a similar appearance to an
+age-elevation profile. In fact, under certain idealised conditions
+(zero analytical uncertainties, linear hypsometry and uniform
+erosion), it can be shown that the CAD of a detrital age population is
+an unbiased estimator of the age-elevation profile. Of course, in
+reality, these idealised conditions never exist. Nevertheless, it is
+still possible to infer useful information about age-elevation
+profiles from the CAD of detrital fission track and U-Th-He
+data. Conversely, if the age-elevation profile is known, then
+deviations of the observed CAD from forward modelled predictions can
+be used to map the spatial distribution of erosion in a river
+catchment [@vermeesch2007a].
+
+\subsection{Radial plots}\label{sec:radial}
+
+Sections \ref{sec:KDE} and \ref{sec:CAD} showed that neither KDEs nor
+CADs are very useful for fission track data.  This is because fission
+track are extremely imprecise and *heteroscedastic*, i.e. their
+precision varies from grain to grain. Radial plots are an alternative
+graphical device that was created specifically to deal with this type
+of data [@galbraith1988;@galbraith1990a].  Unlike KDEs and CADs,
+radial plots jointly visualise the values with their analytical
+uncertainties. A radial plot is a scatter plot of $(x_i,y_i)$ values,
+where
+\begin{equation}
+\begin{split}
+x_i & = 1/s[z_i] \\
+\mbox{and~} y_i & =
+\frac{z_i-z_\circ}{s[z_i]}
+\end{split}
+\label{eq:radial}
+\end{equation}
+
+in which $z_i$ is some transformed version of the data of interest
+(e.g. the logarithm of the $N_s/N_i$-ratios) and $z_\circ$ is some
+reference value such as the mean. The slope of a line connecting the
+origin of this scatter plot with any of the $(x_i,y_i)$s is
+proportional to $z_i$ and, hence, a function of the date $t_i$.  In
+`IsoplotR`, radial plots are produced with the `radialplot` function:
+
+```{r, eval=FALSE}
+radialplot(FTdat)
+```
+
+To understand the interpretation of radial plots, consider the
+following toy example consisting of four sets of fission track counts:
+
+\begin{table}[H]
+\begin{minipage}[]{.35\textwidth}
+\begin{tabular}{c|cccc}
+\# & $N_s$ & $N_i$ & $N_s/N_i$ & $N_s + N_i$ \\ \hline
+1 & 10 & 90 & 0.1 & 100 \\
+2 & 50 & 50 & 1 & 100 \\
+3 & 1 & 9 & 0.1 & 10 \\
+4 & 5 & 5 & 1 & 10
+\end{tabular}
+\end{minipage}
+\begin{minipage}[]{.05\textwidth}
+\end{minipage}
+\begin{minipage}[]{.60\textwidth}
+\caption{
+Four synthetic fission track counts. Note how the
+$N_s/N_i$-ratios of grains 1 and 3 are lower than those of grains 2 and
+4; and how the sum of the counts ($N_s + N_i$) for grains 1 and 2 is
+greater than those of grains 3 and 4. Therefore, grains 1 and 3 are
+younger than grains 2 and 4; whilst the dates of grains 1 and 2 are
+more precise than those of grains 1 and 2.
+}
+\label{tab:FTtoy}
+\end{minipage}
+\end{table}
+
+The radial plot simultaneously displays the dates (which are
+proportional to the angle of the data relative to the origin) and
+their analytical precision (which scales with the horizontal position
+of the plot symbols in the radial plot (Figure \ref{fig:radialplot}).
+
+\begin{figure}[H]
+\begin{minipage}[]{.3\textwidth}
+```{r radialplot, fig.width=3.5, fig.height=3, out.width = "100%", eval=TRUE, echo=FALSE}
+par(mar=c(4,3,0.19,2),mgp=c(2,1,0))
+radialdat <- FTdat
+radialdat$x <- cbind(Ns=c(10,50,1,5),Ni=c(90,50,9,5))
+radialplot(radialdat,z0=200,show.numbers=TRUE)
+```
+\end{minipage}
+\begin{minipage}[]{.05\textwidth}
+\end{minipage}
+\begin{minipage}[]{.65\textwidth}
+\caption{
+Radial plot for the toy example of Table \ref{tab:FTtoy},
+with $\zeta=350$ yr cm$^2$ and $\rho_D=2.5\times{10}^6$
+cm$^{-2}$. Connecting the origin of the diagram to the plot symbols
+for grains 1 and 3 (low $N_s/N_i$-ratios) forms a line with a negative
+slope, which projects onto the radial scale at a younger date than a
+line connecting the origin to grains 2 and 4 (high $N_s/N_i$-ratios,
+positive slope). Grains 1 and 2 (high $N_s + N_i$-values, right hand
+side of the radial plot) are more precise than grains 3 and 4 (low
+$N_s + N_i$-values, left hand side of the radial plot).
+}
+\label{fig:radialplot}
+\end{minipage}
+\end{figure}
+
+Plotting five random samples from the synthetic populations of \ref{fig:fivepops} on radial plots (Figure \ref{fig:fiveFTradialplots}) preserves the bimodality of populations 3, 4 and 5 better than the KDEs and CADs of Figures \ref{fig:fiveFTsamples2} and \ref{fig:fiveFTcads}.
+
+\begin{figure}[H]
+```{r fiveFTradialplots, fig.width=3, fig.height=3, out.width = "19.6%", eval=TRUE, echo=FALSE}
+par(mar=c(3,2,0.17,2),mgp=c(2,1,0))
+FTsamps2 <- list()
+for (i in 1:5){
+    FTsamps2[[i]] <- FTsamp(pop=i,ng=25)
+    radialplot(FTsamps2[[i]],from=20,to=500,xpd=NA)
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+    writeFTfile(FTsamps2[[i]],paste0('data/FT',i,'.csv'))
+}
+```
+\caption{
+Radial plots for five random fission track samples of the populations
+shown in Figure \ref{fig:fiveFTdatepops}. Unlike the samples shown in
+Figures \ref{fig:fiveFTsamples2} and \ref{fig:fiveFTcads}, $N_s+N_i$
+was allowed to vary between grains in this example. The bimodality of
+populations 3, 4 and 5 can more easily be recognised in these diagrams
+than the KDEs or CADs.
+}
+\label{fig:fiveFTradialplots}
+\end{figure}
+
+Besides visualising the distribution of the dates, an equally
+important feature of the radial plot is its ability to visually assess
+the dispersion of the data. Consider, for example, samples 1 and 2 in
+Figure \ref{fig:fiveFTradialplots}. Both of these datasets are centred
+around 100 Ma, and are characterised by similar analytical precision,
+with $N_s+N_i$ ranging from 50 to 200 for both samples.
+
+The key difference between the two samples is the spread of the
+dates. The dates of sample 1 range from 50 to 150 Ma, whereas those of
+sample 2 range from 20 to 300 Ma. The left hand side of the radial
+plots contains a '2-sigma' error bar around the origin. The plot
+symbols for sample 1 all fall within a band of this width. In contrast
+with this, the plot symbols for sample 2 fall outside the 2-sigma band
+of their radial plot. This provides graphical evidence that sample 2
+is _overdispersed_ with respect to the analytical uncertainties,
+whereas sample 1 is not. Section \ref{sec:X2} will formalise this
+visual assessment with a statistical text.
+
+*Exercise*: The datasets of Figure \ref{fig:fiveFTradialplots} are
+ saved in five files called `FT1.csv` through `FT5.csv`.
+
+1. Using these input files, reproduce the radial plots of Figure \ref{fig:fiveFTradialplots}.
+
+2. Investigate the effects of changing the parameters called `to`, `from`, `z0` and `transformation`. See `?radialplot` for details.
+
+Although radial plots are most popular in fission track
+thermochronology, they can also be used to visualise other types of
+heteroscedastic data, including U-Th-He dates (Figure
+\ref{fig:fiveHeradialplots}).
+
+```{r, eval=FALSE}
+radialplot(Hedat)
+```
+
+\begin{figure}[H]
+```{r fiveHeradialplots, fig.width=3, fig.height=3, out.width = "19.6%", fig.show = 'hold', eval=TRUE, echo=FALSE}
+par(mar=c(3,2,0.17,2),mgp=c(2,1,0))
+Hesamps2 <- list()
+for (i in 1:5){
+    Hesamps2[[i]] <- UThHesamp(pop=i,ng=25)
+    IsoplotR::radialplot(Hesamps2[[i]],from=20,to=500,xpd=NA)
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+    writeUThHefile(Hesamps2[[i]],paste0('data/UThHe',i,'.csv'))
+}
+```
+\caption{
+Radial plots for five random U-Th-He samples of the populations shown in Figure \ref{fig:fiveHedatepops}. These datasets are saved in files \texttt{UThHe1.csv} through \texttt{UThHe5.csv}.
+}
+\label{fig:fiveHeradialplots}
+\end{figure}
+
+Note how the 2-sigma bands of Figure \ref{fig:fiveHeradialplots} are
+much narrower than those of Figure \ref{fig:fiveFTradialplots}. This
+reflects the higher precision of the U-Th-He measurements compared to
+the fission track data.
+
+\subsection{Helioplots}\label{sec:helioplot}
+
+The U-Th-He ingrowth equation (Equation \ref{eq:U-Th-He}) is scale
+invariant in the sense that the age ($t$) does not depend on the
+absolute amounts of U, Th and He, but only on their _relative_
+amounts. This means that we can renormalise the U-Th-He composition of
+a sample to unity and plot it on a ternary diagram
+[@vermeesch2008a]. Figure \ref{fig:ternary} plots the five samples of
+Figure \ref{fig:fiveHeradialplots} in this way.
+
+\begin{figure}[H]
+```{r ternary, fig.width=4, fig.height=2.5, out.width = "19.6%", fig.show = 'hold', eval=TRUE, echo=FALSE}
+par(mar=c(1,3,0,0))
+for (i in 1:5){
+    helioplot(Hesamps2[[i]],logratio=FALSE,show.barycentre=FALSE)
+    legend('topleft',legend=i,bty='n',adj=c(1,0))
+}
+```
+\caption{
+The five random U-Th-He samples of Figure \ref{fig:fiveHeradialplots} shown as ternary `helioplots'.
+}
+\label{fig:ternary}
+\end{figure}
+
+Alternatively (and equivalently), the same U-Th-He data can also be
+visualised on bivariate logratio diagrams (Figure
+\ref{fig:logratios}).
+
+\begin{figure}[H]
+```{r logratios, fig.width=4, fig.height=3.25, out.width = "19.6%", fig.show = 'hold', eval=TRUE, echo=FALSE}
+par(mar=c(3,4,0,1),mgp=c(2,1,0))
+for (i in 1:5){
+    helioplot(Hesamps2[[i]],logratio=TRUE,show.barycentre=FALSE)
+    legend('topleft',legend=i,bty='n',adj=c(1.25,0.5))
+}
+```
+\caption{
+The same data as Figure \ref{fig:ternary} shown as bivariate logratio plots.
+}
+\label{fig:logratios}
+\end{figure}
+
+In `IsoplotR`:
+
+```{r eval=FALSE}
+helioplot(Hedat,logratio=TRUE)
+```
+
+The benefits of the logratio treatment will be discused in more detail
+in Section \ref{sec:Aitchison} of these notes.
+
+\section{Mixture models}\label{sec:mixtures}
+
+The graphical devices of Section \ref{sec:plotting} are tools to
+assess the shape of the PDF of the dates (Figures
+\ref{fig:fiveFTdatepops} and \ref{fig:fiveHedatepops}) from a random
+selection of samples. However, the scientifically most important
+information is not contained in the PDF of the dates, but in the PDF
+of the ages (Figure \ref{fig:fivepops}). This Section will introduce
+statistical techniques to parameterise age populations.
+
+\subsection{The $\chi^2$ test for homogeneity}\label{sec:X2}
+
+The $\chi^2$ test for homogeneity is a way to decide whether a dataset
+is derived from Figure \ref{fig:fivepops}'s populations 1 or 2. To
+this end, we calculate the Chi-square test statistic. For fission
+track data using the External Detector Method (EDM), this statistic
+can be directly calculated from the raw fission track counts:
+\begin{equation}
+  \chi_{\mbox{\tiny{stat}}}^2 =
+  \frac{1}{N_sN_i}\sum\limits_{j=1}^{n}\frac{(N_{sj}N_i-N_{ij}N_s)^2}{N_{sj}+N_{ij}}
+  \label{eq:X2}
+\end{equation}
+
+For other data, such as U-Th-He dates and ICP-MS based fission track dates, an alternative formula can be used:
+\begin{equation}
+  \chi_{\mbox{\tiny{stat}}}^2 =
+  \sum\limits_{j=1}^{n} \left( \ln[\hat{t}_j]\frac{\hat{t}_j}{s[\hat{t}_j]} \right)^2  -
+  \frac{
+    \left( \sum\limits_{j=1}^{n} \ln[\hat{t}_j]\left[\frac{s[\hat{t}_j]}{\hat{t}_j}\right]^2 \right)^2
+  }{
+    \sum\limits_{j=1}^{n}
+    \left(\frac{\hat{t}_j}{s[\hat{t}_j]}\right)^2
+  }
+\end{equation}
+
+If the data come from the discrete age population 1, then the value of the $\chi_{\mbox{\tiny{stat}}}^2$ is derived from a (noncentral) Chi-square distribution with $n-1$ degrees of freedom. If $n$ is reasonably large ($n>20$, say), the expected value of $\chi_{\mbox{\tiny{stat}}}^2$ is approximately equal to the number of degrees of freedom. Put in another way, if $n>1$ and the data are derived from population 1, then the Mean Square of the Weighted Deviates (MSWD, a.k.a. the _reduced Chi-square statistic_) is approximately 1:
+\begin{equation}
+\mbox{MSWD} = \frac{\chi_{\mbox{\tiny{stat}}}^2}{n-1} \approx 1 \mbox{~if~} n>20
+\end{equation}
+
+The probability of observing a Chi-square statistic of $\chi_{\mbox{\tiny{stat}}}^2$ _or greater_ under a Chi-square distribution with $n-1$ degrees of freedom is called the 'p-value'. A p-value of less than 0.05 is usually taken as sufficient evidence to reject the hypothesis of a discrete age distribution such as population 1 in favour of a more dispersed age distribution such as population 2. For samples with $n>20$, p-values below 0.05 correspond to MSWD values that exceed $1+2\sqrt{2/(n-1)}$.
+
+`IsoplotR` reports the results of the Chi-square test for age homogeneity in the legend of its radial plots. Inspecting fission track samples 1 and 2 of Figure \ref{fig:fiveFTradialplots} and U-Th-He samples 1 and 2 of Figure \ref{fig:fiveHeradialplots}:
+
+\begin{figure}[H]
+```{r chisquarelegend, fig.width=3.5, fig.height=3.5, out.width = "24.6%", fig.show = 'hold', eval=TRUE, echo=FALSE}
+fnames <- c('FT1.csv','FT2.csv','UThHe1.csv','UThHe2.csv')
+method <- c('fissiontracks','fissiontracks','U-Th-He','U-Th-He')
+labels <- c('FT1','FT2','UThHe1','UThHe2')
+for (i in 1:4){
+    path <- file.path('data',fnames[i])
+    dat <- read.data(path,method=method[i])
+    IsoplotR::radialplot(dat)
+    legend('bottomleft',legend=labels[i],bty='n')
+}
+```
+\caption{
+The same radial plots as panels 1 and 2 of Figure \ref{fig:fiveFTradialplots} (leftmost two panels) and Figure \ref{fig:fiveHeradialplots} (rightmost two panels), but with their respective legends. These legends report the MSWD and p-values, as well as the central age and (for the second and fourth panels) the dispersion parameter. The latter two quantities are discussed in Section \ref{sec:randomeffects}.
+}
+\label{fig:chisquare}
+\end{figure}
+
+Inspection of Figure \ref{fig:chisquare} leads to the following observations:
+
+1. Samples `FT2` and `UThHe2` (which are shown in the second and
+fourth panel) are characterised by MSWD-values that are much greater
+than 1, and p-values that are smaller than 0.05. Hence they fail the
+Chi-square test. These two samples were both drawn from population 2
+of Figure \ref{fig:fivepops}. Thus, the test has correctly identified
+that these two samples are not compatible with a discrete age
+population.
+
+2. Samples `FT1` and `UThHe1` do not fail the Chi-square test. This
+does not necessarily prove that they were drawn from a discrete age
+population (although, in this case, they actually were). All we can
+say is that we cannot rule out that they were drawn from a discrete
+population.
+
+3. The MSWD value of sample `UThHe2` is much higher than that of
+sample `FT2`, and its p-value is much lower. So although both datasets
+were drawn from the same age population, the evidence for excess
+dispersion is much stronger for the high precision U-Th-He data than
+for the low precision fission track data.
+
+\subsection{The random effects model}\label{sec:randomeffects}
+
+Thanks to the Chi-square test, it is possible to distinguish unimodal
+discrete age distributions such as population 1 from more complex age
+distributions such as populations 2 though 5. Let us now consider
+population 2 in more detail. Whereas population 1 can be completely
+characterised by a single number (the age of the discrete peak),
+population 2 can be described by two parameters, controlling the
+position and dispersion of the data. These two parameters are commonly
+referred to as $\mu$ and $\sigma$, respectively [@galbraith1993].
+
+For EDM-based fission track data, $\mu$ and $\sigma$ are defined as
+the mean and standard deviation $\ln[\rho_s/\rho_i]$.
+
+\begin{equation}
+\ln[\rho_s/\rho_i] \sim \mathcal{N}(\mu,\sigma^2)
+\label{eq:FTcentral}
+\end{equation}
+
+For ICP-MS based fission track data and U-Th-He dates, $\mu$ and
+$\sigma$ are defined as the mean and standard deviation of $\ln[t]$:
+
+\begin{equation}
+\ln[t] \sim \mathcal{N}(\mu,\sigma^2)
+\label{eq:Hecentral}
+\end{equation}
+
+Given some fission track counts or U-Th-He measurements, $\mu$ and
+$\sigma$ can be estimated (as $\hat{\mu}$ and $\hat{\sigma}$) using
+Equation \ref{eq:FTcentral} or \ref{eq:Hecentral}, respectively, by
+treating the parameters as unknowns. This is called the 'method of
+maximum likelihood'. For EDM-based fission track data, the 'central
+age' is then defined as the age corresponding to a
+$\rho_s/\rho_i=\exp[\hat{\mu}]$. For other data (including U-Th-He),
+the central age is simply given by $\exp[\hat{\mu}]$ directly. As the
+name suggests, the 'dispersion' parameter $\hat{\sigma}$ quantifies
+the spread of the ages around the central value.
+
+Further investigation of Figure \ref{fig:chisquare} shows that only
+the radial plots for datasets `FT2` and `UThHe2` report the
+dispersion, because only these two datasets fail the Chi-square
+test. For datasets `FT1` and `UThHe1`, there is insufficient evidence
+that the dispersion is greater than zero.
+
+Although samples `FT2` and `UThHe2` are characterised by vastly
+different MSWDs and p-values, their estimated dispersion parameters
+overlap within uncertainty. This reflects the fact that they were both
+derived from exactly the same age population (i.e. population 2 of
+Figure \ref{fig:fivepops}). Note, again, that the PDFs of their dates
+(which are shown in Figures \ref{fig:fiveFTdatepops} and
+\ref{fig:fiveHedatepops}) are NOT the same. In summary, the random
+effects model has successfully estimated key properties of the age
+distribution from the distribution of the dates.
+
+In `IsoplotR`, the random effects model can either be accessed
+indirectly via the `radialplot()` function, or directly via the
+`central()` function. For fission track data:
+
+```{r eval=TRUE}
+FT2dat <- read.data("data/FT2.csv",method="fissiontracks")
+result <- central(FT2dat)
+message("MSWD=",result$mswd,", date=",result$age[1],", dispersion=",result$disp[1])
+```
+
+Similarly, for U-Th-He data:
+
+```{r eval=TRUE}
+He2dat <- read.data("data/UThHe2.csv",method="U-Th-He")
+result <- central(He2dat)
+message("MSWD=",result$mswd,", date=",result$age[1],", dispersion=",result$disp[1])
+```
+
+*Exercise*: Apply the random effects model to the fission track
+\emph{dates} rather than the raw fission track data. Do this using
+both the `radialplot()` and `central()` functions. How different are
+these approximate results from the exact results obtained using the
+raw data?
+
+\subsection{Finite mixtures}\label{sec:finitemixtures}
+
+The following code applies the random effects model to fission
+track samples `FT3` through `FT5`:
+
+```{r eval=TRUE}
+for (fname in c('FT3.csv','FT4.csv','FT5.csv')){
+    path <- file.path('data',fname)
+    result <- central(read.data(path,method="fissiontracks"))
+    message(fname,": MSWD=",result$mswd,", p-value=",result$p.value)
+}
+```
+
+All three samples fail the Chi-square test, because none of them were
+derived from a discrete age distribution such as population
+1. However, the Chi-square test does not distinguish between
+populations 2, 3, 4 and 5.
+
+The random effects model assumes that the age distribution looks like
+the unimodal distribution of population 2. Different statistical
+models are required to describe populations 3, 4 and 5. Population 3
+consists of a finite mixture of two discrete age components at 100 Ma
+and 200 Ma. The distribution of the dates blurs out these two
+components (Figure \ref{fig:fiveFTdatepops}.3) to the point where the
+two modes are unrecognisable in a KDE of a 25-grain sample (Figure
+\ref{fig:fiveFTsamples2}.3). Once again, mathematical statistics comes
+to the rescue [@galbraith1990b].
+
+It is possible to capture age population 3 with three parameters: the
+(logs of the) $\rho_s/\rho_i$-ratios or ages of the two components
+($\mu_1 = \ln[(\rho_s/\rho_i)_1]$ or $\ln[t_1]$ and $\mu_2 =
+\ln[(\rho_s/\rho_i)_2]$ or $\ln[t_2]$) and the fraction of the
+population that belongs to population 1 ($\pi$, where the fraction
+belonging to population 2 is given by $1-\pi$).
+
+In `IsoplotR`, this calculation can be done by the `radialplot()`
+function (Figure \ref{fig:FTmixture}). To fit two peaks to the third
+dataset of Figure \ref{fig:fiveFTradialplots}:
+
+```{r, eval=FALSE, echo=TRUE}
+FT3dat <- read.data("data/FT3.csv",method="fissiontracks")
+radialplot(FT3dat,k=2)
+```
+
+\begin{figure}[H]
+\begin{minipage}{.35\textwidth}
+```{r, fig.width=5, fig.height=4, out.width = "100%", eval=TRUE, echo=FALSE}
+par(mar=c(3,2,0.17,2),mgp=c(2,1,0))
+FT3dat <- read.data("data/FT3.csv",method="fissiontracks")
+radialplot(FT3dat,k=2)
+```
+\end{minipage}
+\begin{minipage}{.05\textwidth}
+\end{minipage}
+\begin{minipage}{.60\textwidth}
+\caption{
+Finite mixture of sample \texttt{FT3} from fission track population 3,
+which consists of a 50/50 mixture of 100 and 200 Ma age
+components. Uncertainties are reported as 90\% confidence intervals.
+}
+\label{fig:FTmixture}
+\end{minipage}
+\end{figure}
+
+Alternatively, the numerical output of the peak fitting algorithm can
+also be obtained directly with the `peakfit()` function:
+
+```{r, eval=TRUE, echo=TRUE}
+result <- peakfit(FT3dat,k=2)
+cbind(t(result$peaks),t(result$props))
+```
+
+which also reports the standard errors of the estimated proportions.
+
+\subsection{How many components to fit?}\label{sec:howmany}
+
+The parameter `k` of the `radialplot()` and `peakfit()` functions
+controls the number of components in the finite mixture model.
+However, in many cases, the number of components in a natural sample
+is unkown. `IsoplotR` provides a mechanism to choose the 'optimal'
+number of finite components that can be fitted to a detrital
+population:
+
+```{r, eval=TRUE, echo=TRUE}
+result <- peakfit(FT3dat,k='auto')
+cbind(t(result$peaks),t(result$props))
+```
+
+which produces exactly the same result as `k=2`. It is tempting to use
+`k="auto"` as the default option. However, doing so can produce
+misleading results.  Suppose that the detrital age distribution (which
+is unknown) consists of a continuous mixture such as population 2 of
+Figure \ref{fig:fivepops}. Fitting a finite mixture to the continuous
+mixture of sample `FT2`:
+
+```{r, eval=TRUE, echo=TRUE}
+FT2dat <- read.data("data/FT2.csv",method="fissiontracks")
+result <- peakfit(FT2dat,k='auto')
+result$peaks
+```
+
+The `peakfit()` algorithm has returned two age components, even though
+the population has only one (continuous) age component. The two
+component ages are statistically significant but geologically
+meaningless. To make matters worse, the number of statistically
+justifiable discrete age components increases with sample size.  To
+illustrate this phenomenon, let us use `helper.R`'s `FTsamp()`
+function to generate three samples containing 20, 100 and 500 values,
+respectively, from population 2 (Figure \ref{fig:samplesize}).
+
+\begin{figure}[H]
+```{r, fig.width=5, fig.height=4, out.width = "32.6%", fig.show = 'hold', eval=TRUE, echo=FALSE}
+par(mar=c(3,2,0.17,2),mgp=c(2,1,0))
+nn <- c(20,100,500)
+samplemix <- list()
+for (i in seq_along(nn)){
+    samplemix[[i]] <- FTsamp(pop=2,ng=nn[i])
+    radialplot(samplemix[[i]],k='auto',from=5,to=500)
+    legend('topleft',legend=paste0('(n=',nn[i],')'),bty='n')
+}
+```
+\caption{
+Applying the finite mixture model to continuous mixtures from
+population 2 yields statistically valid but geologically meaningless
+results. The number of `automatically' fitted components increases
+with sample size ($n$).
+}
+\label{fig:samplesize}
+\end{figure}
+
+In summary, the `auto` setting is of limited value. It should not be
+used to 'prove' the presence of finite mixtures. The greatest value of
+the `auto` setting is to protect oneself against over-interpreting
+data: if the automated peak fitting returns two age components, then
+there is definitely _not_ enough evidence to justify the presence of
+three age components!
+
+\subsection{The minimum age model}\label{sec:minagemod}
+
+The '_lag time_' is the difference between the youngest age component
+and the depositional age of a sedimentary deposit. Lag times are often
+used to track tectonic exhumation rates over time.  It should be clear
+that the finite mixture models of Section \ref{sec:finitemixtures} are
+not ideally suited for lag time estimation. So let us abandon this
+model in favour of a model that describes the functional form of
+population 4 (Figure \ref{fig:fivepops}) with four parameters:
+
+1. $\gamma = \ln[(\rho_s/\rho_i)_m]$ (for EDM data) or $=\ln[t_m]$
+(for other data), where $(\rho_s/\rho_i)_m$ is the
+$\rho_s/\rho_i$-ratio and and $t_m$ the age of the (discrete) youngest
+component;
+
+2. $\mu = \ln[(\rho_s/\rho_i)_c]$ (for EDM data) or $=\ln[t_c]$ (for
+other data), are the means of truncated (at $\gamma$) normal
+distributions describing the continuous distribution of a hypothesised
+older age population;
+
+3. $\sigma$ is the standard deviation of the continuous mixture
+of older ages (before truncation);
+
+4. $\pi$ represents the fraction of the population belonging to the
+discrete youngest age component, so that $1-\pi$ is the fraction of the
+population belonging to the older component.
+
+These four parameters can be estimated using the method of maximum
+likelihood, i.e. by finding the parameters that minimise the misfit
+with the data. To increase numerical stability, it is useful to reduce
+the number of free parameters from four to three by making the
+simplifying assumption that $\gamma = \mu$. This usually has an only
+minor effect on the accuracy of the minimum age estimate (Figure
+\ref{fig:minagemod}).
+
+In `IsoplotR`, this minimum age model can be used by setting `k='min'`
+in `radialplot()` and `peakfit()`:
+
+```{r, eval=FALSE, echo=TRUE}
+FT4dat <- read.data("data/FT4.csv",method="fissiontracks")
+radialplot(FT4dat,k='min')
+```
+
+which uses the 3-parameter version of the minimum age module. To use
+the 4-parameter version:
+
+```{r, eval=FALSE, echo=TRUE}
+radialplot(FT4dat,k='min',np=4)
+```
+
+Figure \ref{fig:minagemod} reanalyses the synthetic datasets of Figure
+\ref{fig:samplesize} using the minimum age model.
+
+\begin{figure}[H]
+```{r, fig.width=4.5, fig.height=3.75, out.width = "24.6%", fig.show = 'hold', eval=TRUE, echo=FALSE}
+par(mar=c(3,2,0.17,2),mgp=c(2,1,0))
+set.seed(3)
+nn <- c(20,500)
+for (i in seq_along(nn)){
+    samplemix <- FTsamp(pop=4,ng=nn[i])
+    IsoplotR::radialplot(samplemix,k='min',np=4)
+    legend('topleft',legend=paste0('(n=',nn[i],')'),bty='n')
+}
+for (i in seq_along(nn)){
+    samplemix <- UThHesamp(pop=4,ng=nn[i])
+    IsoplotR::radialplot(samplemix,k='min',np=4)
+    legend('topleft',legend=paste0('(n=',nn[i],')'),bty='n')
+}
+```
+\caption{
+Applying the minimum age model to three random samples from population
+3. This produces more stable results, which do not systematically
+depend on sample size.
+}
+\label{fig:minagemod}
+\end{figure}
+
+\subsection{Logratios}\label{sec:Aitchison}
+
+As discussed in Section \ref{sec:helioplot}, the U-Th-He ingrowth
+equation is scale invariant, allowing U-Th-He compositions to be
+visualised on ternary diagrams and logratio plots (Figures
+\ref{fig:ternary} and \ref{fig:logratios}). This section will show
+that the logratio diagram is the 'natural' space within which to
+process U-Th-He (and other geochronological) datasets. To illustrate
+the benefits of using logratios, consider the following synthetic
+dataset of U-He measurements (assuming Th=0):
+
+```{r}
+U <- signif(runif(10),4)
+He <- signif(runif(10),4)
+rbind('U'=U,'He'=He)
+```
+
+where the `signif()` function rounds the random numbers to four
+significant digits for the sake of brevity. Let us now calculate the
+U/He ratios and the He/U ratios:
+
+```{r}
+ratios <- rbind('U/He'=U/He,'He/U'=He/U)
+print(signif(ratios,4))
+```
+
+It is easy to see that $1/(\mbox{U/He}) = \mbox{He/U}$ (for example,
+1/`r signif(U[1]/He[1],4)` = `r signif(He[1]/U[1],4)`. However, when
+we compare the arithmetic means of the U/He and He/U vectors:
+
+```{r}
+signif(rowMeans(ratios),4)
+```
+
+Then we find that 1/`r signif(mean(U/He),4)` = `r signif(1/mean(U/He),4)` $\neq$ `r signif(mean(He/U),4)`!
+
+The solution to this puzzling inconsistency is simple: take logarithms. Calculate the U/He and He/U logratios:
+
+```{r}
+signif(log(ratios),3)
+```
+
+Averaging the logratios and exponentiating produces two geometric means:
+
+```{r}
+signif(exp(rowMeans(log(ratios))),4)
+```
+
+then we see that 1/`r signif(exp(rowMeans(log(ratios))[1]),4)` =
+`r signif(exp(rowMeans(log(ratios))[2]),4)`, an altogether more satisfying result.
+
+The logratio approach can be generalised from two to three variables. Thus, the three components of the U-Th-He method can be mapped to two logratios and back:
+\begin{equation}
+\mbox{U} = \frac{e^x}{e^x+e^y+1},
+\mbox{Th} = \frac{e^y}{e^x+e^y+1},
+\mbox{He} = \frac{1}{e^x+e^y+1}
+\rightleftarrows
+x = \ln\!\left[\frac{\mbox{U}}{\mbox{He}}\right],
+y = \ln\!\left[\frac{\mbox{Th}}{\mbox{He}}\right]
+\end{equation}
+
+Taking the (weighted) mean of the logratios and subjecting the
+resulting value to an inverse logratio transformation gives rise to a
+compositional mean. Plugging this compositional mean into Equation
+\ref{eq:U-Th-He} and solving it for time gives rise to a 'barycentric'
+age. Note that, in previous versions of `IsoplotR`, this value was
+called a 'central' age [@vermeesch2008a]. However, it was recently
+renamed to avoid confusion with the central age of Section
+\ref{sec:randomeffects}.
+
+In `IsoplotR`, this calculation is done by the `helioplot()` and
+`central()` functions.
+
+```{r, eval=TRUE, echo=TRUE}
+result <- central(Hedat,compositional=TRUE)
+message("barycentric age= ",signif(result$age["t"],4),
+        ", MSWD = ",signif(result$mswd,4),
+        ", p.value = ", signif(result$p.value,4))
+```
+
+\begin{figure}[H]
+\begin{minipage}{0.3\textwidth}
+```{r, fig.width=4.1, fig.height=4, out.width = "100%", fig.show = 'hold', eval=TRUE, echo=FALSE}
+par(mar=c(3,3,2,0.1),mgp=c(2,1,0))
+helioplot(Hedat,logratio=TRUE)
+```
+\end{minipage}
+\begin{minipage}[t]{0.7\textwidth}
+\caption{
+Logratio-plot of some U-Th-He data with indication of the weighted mean composition (white ellipse) and barycentric U-Th-He age.
+}
+\label{fig:compositionalmean}
+\end{minipage}
+\end{figure}
+
+The 'compositional' MSWDs of the helioplot tend to be significantly
+higher (and the p-values lower) than the MSWDs (and p-values) of the
+central ages that are shown on radial plots.
+
+\section{Mineral fertility estimation with \texttt{provenance}}
+
+The previous sections reviewed techniques that can be applied to
+individual samples of bedrock or sediment. Most studies, however,
+usually involve multiple samples. This is especially the case for
+detrital thermochronology studies that aim to map out sediment budget
+in river catchments. The \texttt{provenance} package includes some
+useful functions for such studies. As the name suggests,
+\texttt{provenance} is an `R` package for statistical provenance
+analysis [@vermeesch2016a]. It can be installed as follows:
+
+```{r eval=FALSE, echo=TRUE}
+install.packages("provenance")
+```
+
+and used in two different ways:
+
+1. Using a query based user interface:
+
+   ```{r eval=FALSE}
+   provenance::provenance()
+   ```
+
+2. Using the command-line API.
+
+   ```{r, eval=TRUE, echo=TRUE}
+   library(provenance)
+   ```
+
+\subsection{Grain size estimation}
+
+One of the principal aims of detrital thermochronology is to determine
+catchment-wide exhumation rates. These exhumation rates are often used
+to estimate mass balances between different catchments. The accuracy
+of these mass balances crucially depends on the apatite or zircon
+concentrations of the river catchments of interest. Consider, for
+example, the confluence of two rivers: one draining a catchment
+dominated by carbonate lithologies and another draining a zircon-rich
+granite. The zircon age spectrum of the pooled sediment will be
+completely dominated by the granite catchment, whilst being blind to
+the exhumation that is taking place in the carbonate catchment.  In
+order to get a handle on mineral fertility, it is extremely useful to
+measure the concentration of apatite or zircon in the samples
+[@malusa2016].
+
+The first steps of any thermochronological study are sampling and
+mineral separation. Both steps may involve sieving samples.  It is
+important to choose an appropriate grain size window, to avoid the
+risk of (partially) missing the apatite or zircon fraction. This risk
+exists because the mineralogical composition of siliciclastic sediment
+strongly depends on grain size: small grains of dense zircon
+($\rho=4.6-4.7$ g/cm$^3$) are hydraulically equivalent to larger
+grains of less dense quartz ($\rho=2.65$ g/cm$^3$). The 'size shift'
+between minerals of different density can be predicted using the
+Minsorting algorithm, which is implemented in the \texttt{provenance}
+package.
+
+The following code snippet predicts the grain size distributions of
+the quartz, apatite and zircon in a well sorted sand with an average
+Krumbein grain size of $\phi = 2 \pm 0.5 (1
+\sigma)$. `read.compositional()` and `minsorting()` are functions of
+the `provenance` package and `densities` is a table with mineral
+densities that is included with it.  Type `?read.compositional`,
+`?minsorting` and `?densities` at the console for futher details.
+
+```{r, eval=FALSE, echo=TRUE}
+comp <- read.compositional("data/mineralogy.csv")
+grainsizes <- minsorting(comp,dens=densities,sname="N1",
+                         phi=2,sigmaphi=0.5,medium="freshwater",by=0.05)
+plot(grainsizes,components=c("Q","ap","zr"))
+```
+
+\begin{figure}[H]
+\begin{minipage}{.35\textwidth}
+```{r, fig.width=3.5, fig.height=2.5, out.width = "100%", eval=TRUE, echo=FALSE}
+par(mar=c(3,3,0.5,0),mgp=c(2,1,0))
+comp <- read.compositional("data/mineralogy.csv")
+grainsizes <- minsorting(comp,dens=densities,sname="N1",
+                         phi=2,sigmaphi=0.5,medium="freshwater",by=0.05)
+plot(grainsizes,components=c("Q","ap","zr"))
+```
+\end{minipage}
+\begin{minipage}{.05\textwidth}
+\end{minipage}
+\begin{minipage}{.60\textwidth}
+\caption{Predicted grain size distributions for quartz, apatite and zircon. The mean grain size for the bulk sample is $\phi=2$ with a standard deviation of $s[\phi]=0.5$. However, dense apatite and zircon are significantly finer grained than the light quartz, resulting in a size shift of 0.65 $\phi$-units between quartz and zircon, and a size shift of 0.25 $\phi$-units between quartz and apatite.}
+\label{fig:Minsorting}
+\end{minipage}
+\end{figure}
+
+\subsection{Source Rock Density (SRD) correction}
+
+After mineral separation, the zircon or apatite fraction can be
+weighed and divided by the total mass of the sample. This provides
+useful estimates of the zircon and apatite fertilities of the sample
+catchment. It is also useful to weigh the bulk density of the sample
+to detect the effects of _hydraulic sorting_
+[@garzanti2008;@garzanti2009].
+
+With the exception of some exotic geological settings such as
+ophiolites, the bulk density of most silicilastic source materials is
+remarkably constant, between 2.65 and 2.75 g/cm$^3$. Placer deposits,
+on the other hand, can easily reach bulk densities of 4 g/cm$^3$ or
+more.
+
+Hydraulic sorting of minerals changes their relative abundances in
+predictable ways. Heavy mineral enrichment in placers and heavy
+mineral depletion in anti-placers can significantly bias mineral
+fertility estimates. \texttt{provenance} implements methods to undo
+these biases by restoring the compositon of a sedimentary assemblage
+to some hypothesised initial bulk density.
+
+```{r eval=TRUE, echo=TRUE}
+rescomp <- restore(comp,dens=densities,target=2.71)
+message("original zr fraction: ",signif(comp$x['N8','zr'],4),
+        "%, restored zr fraction: ",signif(rescomp$x['N8','zr'],4),"%")
+```
+
+\section*{Bibliography}
