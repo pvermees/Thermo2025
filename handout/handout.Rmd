@@ -1,7 +1,7 @@
 ---
 title: "Statistics for (detrital) thermochronology"
 author: Pieter Vermeesch
-date: 3 September 2023
+date: 20 September 2025
 output:
   bookdown::pdf_document2:
     extra_dependencies: ["float","caption"]
@@ -386,7 +386,7 @@ In statistics, an important distinction is made between the
 \emph{true} values of estimated parameters, and their
 \emph{estimates}. In geochronology, these concepts are referred to as
 \emph{ages} and \emph{dates}, respectively\footnote{In reality, the
-terms 'age' and 'date' are often used interchangeably, because their
+terms `age' and `date' are often used interchangeably, because their
 meaning is usually clear from the context.}.
 
 \subsection{Age estimation and error propagation}
@@ -438,7 +438,7 @@ s[\hat{t}] = \hat{t}\sqrt{\frac{1}{N_s}+\frac{1}{N_i}+
 The U-Th-He method is based on the following ingrowth equation:
 \begin{equation}
 \begin{split}
-\left[\mbox{He}\right] & = a(t) \mbox{[U]} + b(t) \mbox{[Th]} \\
+\left[\mbox{He}\right] & = a(t)\,\mbox{[U]} + b(t)\,\mbox{[Th]} \\
 \mbox{~where~} a(t) & = 8 \frac{137.818}{138.818} (e^{\lambda_{238}t} - 1) +
       	     	   7 \frac{1}{138.818} (e^{\lambda_{235}t} - 1) \\
 \mbox{~and~} b(t) & = 6 (e^{\lambda_{232}t} - 1)
@@ -452,9 +452,9 @@ solution but can be solved iteratively. Error propagation is done by
 first order Taylor approximation:
 \begin{equation}
 s[\hat{t}] = 
-\frac{\sqrt{a(\hat{t})^2s[\mbox{U}]^2 + 2a(\hat{t})b(\hat{t})s[\mbox{U,Th}] + b(\hat{t})^2s[\mbox{Th}]^2 + s[\mbox{He}]^2}}
-     {8 \frac{137.818}{138.818} \lambda_{238} e^{\lambda_{238}\hat{t}} +
-      7 \frac{\lambda_{235}}{138.818} e^{\lambda_{235}\hat{t}}}
+\frac{\sqrt{a(\hat{t})^2\,s[\mbox{U}]^2 + 2\,a\,(\hat{t})\,b(\hat{t})\,s[\mbox{U,Th}] + b(\hat{t})^2\,s[\mbox{Th}]^2 + s[\mbox{He}]^2}}
+     {8\,\frac{137.818}{138.818}\,\lambda_{238}\,e^{\lambda_{238}\,\hat{t}} +
+      7\,\frac{\lambda_{235}}{138.818}\,e^{\lambda_{235}\,\hat{t}}}
 \label{eq:stHe}
 \end{equation}
 

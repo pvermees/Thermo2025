@@ -67,7 +67,7 @@ getpop <- function(pop=1,tt,sigma,prop,
         } else if (pop==2){
             yy <- dnorm(mux,mean=mut,sd=sigma)
         } else if (pop==4){
-            yy <- dtrunc(log(xx),mean=mut[2],sd=sigma[2],minx=mut[1])
+            yy <- dtrunc(mux,mean=mut[2],sd=sigma[2],minx=mut[1])
         } else if (pop %in% 5:6){
             np <- length(prop)
             yy <- 0*xx
