@@ -1,0 +1,1014 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.26)  18 SEP 2025 03:36
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**handout.tex
+(./handout.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base
+/article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (/usr/share/texmf/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks16
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2021/10/15 v2.17l AMS math features
+\@mathmargin=\skip49
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen139
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen140
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2021/08/26 v2.02 operator names
+)
+\inf@bad=\count193
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count194
+\leftroot@=\count195
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count196
+\DOTSCASE@=\count197
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box50
+\strutbox@=\box51
+\big@size=\dimen141
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count198
+\c@MaxMatrixCols=\count199
+\dotsspace@=\muskip16
+\c@parentequation=\count266
+\dspbrk@lvl=\count267
+\tag@help=\toks18
+\row@=\count268
+\column@=\count269
+\maxfields@=\count270
+\andhelp@=\toks19
+\eqnshift@=\dimen142
+\alignsep@=\dimen143
+\tagshift@=\dimen144
+\tagwidth@=\dimen145
+\totwidth@=\dimen146
+\lineht@=\dimen147
+\@envbody=\toks20
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
+) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+)) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+2.
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks22
+\inpenc@posthook=\toks23
+) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2021/12/10 v3.0b Micro-typographical refinements (RS)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks24
+) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count271
+)
+\MT@toks=\toks25
+\MT@count=\count272
+\MT@tempbox=\box52
+LaTeX Info: Redefining \leftprotrusion on input line 1010.
+LaTeX Info: Redefining \rightprotrusion on input line 1018.
+LaTeX Info: Redefining \textls on input line 1173.
+\MT@outer@kern=\dimen148
+LaTeX Info: Redefining \textmicrotypecontext on input line 1759.
+\MT@listname@count=\count273
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2021/12/10 v3.0b Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 897.
+LaTeX Info: Redefining \lslig on input line 897.
+\MT@outer@space=\skip52
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2021/12/10 v3.0b microtype main configuration file (RS)
+)) (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+) (/usr/share/texlive/texmf-dist/tex/latex/xurl/xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)) (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+\@linkdim=\dimen149
+\Hy@linkcounter=\count274
+\Hy@pagecounter=\count275
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel la
+nguages
+) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count276
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4073.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count277
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen150
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count278
+\Field@Width=\dimen151
+\Fld@charsize=\dimen152
+Package hyperref Info: Hyper figures OFF on input line 6076.
+Package hyperref Info: Link nesting OFF on input line 6081.
+Package hyperref Info: Hyper index ON on input line 6084.
+Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: Link coloring OFF on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6101.
+Package hyperref Info: PDF/A mode OFF on input line 6106.
+LaTeX Info: Redefining \ref on input line 6146.
+LaTeX Info: Redefining \pageref on input line 6150.
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count279
+\c@Item=\count280
+\c@Hfootnote=\count281
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count282
+\c@bookmark@seq@number=\count283
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip53
+) (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
+\BKM@id=\count284
+)) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count285
+\Gm@cntv=\count286
+\c@Gm@tempcnt=\count287
+\Gm@bindingoffset=\dimen153
+\Gm@wd@mp=\dimen154
+\Gm@odd@mp=\dimen155
+\Gm@even@mp=\dimen156
+\Gm@layoutwidth=\dimen157
+\Gm@layoutheight=\dimen158
+\Gm@layouthoffset=\dimen159
+\Gm@layoutvoffset=\dimen160
+\Gm@dimlist=\toks26
+) (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2021/12/21 4.1b verbatim text (tvz,hv)
+\FV@CodeLineNo=\count288
+\FV@InFile=\read2
+\FV@TabBox=\box53
+\c@FancyVerbLine=\count289
+\FV@StepNumber=\count290
+\FV@OutFile=\write3
+) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip54
+\fb@frw=\dimen161
+\fb@frh=\dimen162
+\FrameRule=\dimen163
+\FrameSep=\dimen164
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip55
+\LTright=\skip56
+\LTpre=\skip57
+\LTpost=\skip58
+\LTchunksize=\count291
+\LTcapwidth=\dimen165
+\LT@head=\box54
+\LT@firsthead=\box55
+\LT@foot=\box56
+\LT@lastfoot=\box57
+\LT@gbox=\box58
+\LT@cols=\count292
+\LT@rows=\count293
+\c@LT@tables=\count294
+\c@LT@chunks=\count295
+\LT@p@ftn=\toks27
+) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen166
+\lightrulewidth=\dimen167
+\cmidrulewidth=\dimen168
+\belowrulesep=\dimen169
+\belowbottomsep=\dimen170
+\aboverulesep=\dimen171
+\abovetopsep=\dimen172
+\cmidrulesep=\dimen173
+\cmidrulekern=\dimen174
+\defaultaddspace=\dimen175
+\@cmidla=\count296
+\@cmidlb=\count297
+\@aboverulesep=\dimen176
+\@belowrulesep=\dimen177
+\@thisruleclass=\count298
+\@lastruleclass=\count299
+\@thisrulewidth=\dimen178
+) (/usr/share/texlive/texmf-dist/tex/latex/footnotehyper/footnotehyper.sty
+Package: footnotehyper 2021/08/13 v1.1e hyperref aware footnote.sty (JFB)
+\FNH@notes=\box59
+\FNH@width=\dimen179
+\FNH@toks=\toks28
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen180
+\Gin@req@width=\dimen181
+) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count300
+\float@exts=\toks29
+\float@box=\box60
+\@float@everytoks=\toks30
+\@floatcapt=\box61
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen182
+\captionmargin@=\dimen183
+\captionwidth=\dimen184
+\caption@tempdima=\dimen185
+\caption@indent=\dimen186
+\caption@parindent=\dimen187
+\caption@hangindent=\dimen188
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count301
+\c@continuedfloat=\count302
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+))
+\cslhangindent=\skip59
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count303
+\l__pdf_internal_box=\box62
+) (./handout.aux)
+\openout1 = `handout.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Info: Redefining \microtypecontext on input line 125.
+Package microtype Info: Applying patch `item' on input line 125.
+Package microtype Info: Applying patch `toc' on input line 125.
+Package microtype Info: Applying patch `eqnum' on input line 125.
+Package microtype Info: Applying patch `footnote' on input line 125.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using protrusion set `basicmath'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 125.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count304
+\scratchdimen=\dimen189
+\scratchbox=\box63
+\nofMPsegments=\count305
+\nofMParguments=\count306
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count307
+\MPscratchDim=\dimen190
+\MPnumerator=\count308
+\makeMPintoPDFobject=\count309
+\everyMPtoPDFconversion=\toks32
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package hyperref Info: Link coloring OFF on input line 125.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count310
+)
+LaTeX Info: Redefining \ref on input line 125.
+LaTeX Info: Redefining \pageref on input line 125.
+LaTeX Info: Redefining \nameref on input line 125.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+27.
+(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+27.
+(/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+127.
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+127.
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 127.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 127.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 127.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 127
+.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 127
+.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) (./handout.toc
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+.
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 2.
+)
+\tf@toc=\write4
+\openout4 = `handout.toc'.
+
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 132.
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<../handout/Screenshot.pdf, id=66, 1421.31pt x 805.50937pt>
+File: ../handout/Screenshot.pdf Graphic file (type pdf)
+<use ../handout/Screenshot.pdf>
+Package pdftex.def Info: ../handout/Screenshot.pdf  used on input line 156.
+(pdftex.def)             Requested size: 469.74944pt x 266.22452pt.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 161.
+[2 <../handout/Screenshot.pdf>] [3]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+398.
+(/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [4] [5] [6] [7]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
+79.
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [8]
+<handout_files/figure-latex/fivepops-1.pdf, id=155, 518.93875pt x 90.3375pt>
+File: handout_files/figure-latex/fivepops-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/fivepops-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fivepops-1.pdf  used on inp
+ut line 889.
+(pdftex.def)             Requested size: 469.78032pt x 81.77992pt.
+[9 <./handout_files/figure-latex/fivepops-1.pdf>]
+<handout_files/figure-latex/fiveFTdatepops-1.pdf, id=178, 518.93875pt x 89.3337
+6pt>
+File: handout_files/figure-latex/fiveFTdatepops-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/fiveFTdatepops-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveFTdatepops-1.pdf  used 
+on input line 1005.
+(pdftex.def)             Requested size: 469.78032pt x 80.87126pt.
+<handout_files/figure-latex/fiveHedatepops-1.pdf, id=182, 518.93875pt x 89.3337
+6pt>
+File: handout_files/figure-latex/fiveHedatepops-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/fiveHedatepops-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveHedatepops-1.pdf  used 
+on input line 1022.
+(pdftex.def)             Requested size: 469.78032pt x 80.87126pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10 <./handout_files/figure-latex/fiveFTdatepops-1.pdf>]
+<handout_files/figure-latex/fiveFTsamples1-1.pdf, id=203, 538.01pt x 96.36pt>
+File: handout_files/figure-latex/fiveFTsamples1-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/fiveFTsamples1-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveFTsamples1-1.pdf  used 
+on input line 1076.
+(pdftex.def)             Requested size: 469.75604pt x 84.13539pt.
+<handout_files/figure-latex/fiveFTsamples2-1.pdf, id=208, 538.01pt x 96.36pt>
+File: handout_files/figure-latex/fiveFTsamples2-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/fiveFTsamples2-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveFTsamples2-1.pdf  used 
+on input line 1090.
+(pdftex.def)             Requested size: 469.75604pt x 84.13539pt.
+<handout_files/figure-latex/fiveHesamples-1.pdf, id=214, 538.01pt x 96.36pt>
+File: handout_files/figure-latex/fiveHesamples-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/fiveHesamples-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveHesamples-1.pdf  used o
+n input line 1110.
+(pdftex.def)             Requested size: 469.75604pt x 84.13539pt.
+[11 <./handout_files/figure-latex/fiveHedatepops-1.pdf> <./handout_files/figure
+-latex/fiveFTsamples1-1.pdf>] [12 <./handout_files/figure-latex/fiveFTsamples2-
+1.pdf> <./handout_files/figure-latex/fiveHesamples-1.pdf>]
+<handout_files/figure-latex/fiveFTcads-1.pdf, id=276, 531.9875pt x 96.36pt>
+File: handout_files/figure-latex/fiveFTcads-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/fiveFTcads-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveFTcads-1.pdf  used on i
+nput line 1166.
+(pdftex.def)             Requested size: 469.76582pt x 85.08963pt.
+<handout_files/figure-latex/fiveHecads-1.pdf, id=281, 531.9875pt x 96.36pt>
+File: handout_files/figure-latex/fiveHecads-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/fiveHecads-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveHecads-1.pdf  used on i
+nput line 1175.
+(pdftex.def)             Requested size: 469.76582pt x 85.08963pt.
+[13 <./handout_files/figure-latex/fiveFTcads-1.pdf> <./handout_files/figure-lat
+ex/fiveHecads-1.pdf>]
+<handout_files/figure-latex/radialplot-1.pdf, id=312, 242.9075pt x 193.72375pt>
+
+File: handout_files/figure-latex/radialplot-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/radialplot-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/radialplot-1.pdf  used on i
+nput line 1270.
+(pdftex.def)             Requested size: 140.9272pt x 112.39236pt.
+<handout_files/figure-latex/fiveFTradialplots-1.pdf, id=319, 205.76875pt x 212.
+795pt>
+File: handout_files/figure-latex/fiveFTradialplots-1.pdf Graphic file (type pdf
+)
+<use handout_files/figure-latex/fiveFTradialplots-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveFTradialplots-1.pdf  us
+ed on input line 1294.
+(pdftex.def)             Requested size: 92.07072pt x 95.2146pt.
+<handout_files/figure-latex/fiveFTradialplots-2.pdf, id=320, 205.76875pt x 212.
+795pt>
+File: handout_files/figure-latex/fiveFTradialplots-2.pdf Graphic file (type pdf
+)
+<use handout_files/figure-latex/fiveFTradialplots-2.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveFTradialplots-2.pdf  us
+ed on input line 1295.
+(pdftex.def)             Requested size: 92.07072pt x 95.2146pt.
+<handout_files/figure-latex/fiveFTradialplots-3.pdf, id=321, 205.76875pt x 212.
+795pt>
+File: handout_files/figure-latex/fiveFTradialplots-3.pdf Graphic file (type pdf
+)
+<use handout_files/figure-latex/fiveFTradialplots-3.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveFTradialplots-3.pdf  us
+ed on input line 1296.
+(pdftex.def)             Requested size: 92.07072pt x 95.2146pt.
+<handout_files/figure-latex/fiveFTradialplots-4.pdf, id=322, 205.76875pt x 212.
+795pt>
+File: handout_files/figure-latex/fiveFTradialplots-4.pdf Graphic file (type pdf
+)
+<use handout_files/figure-latex/fiveFTradialplots-4.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveFTradialplots-4.pdf  us
+ed on input line 1297.
+(pdftex.def)             Requested size: 92.07072pt x 95.2146pt.
+<handout_files/figure-latex/fiveFTradialplots-5.pdf, id=323, 205.76875pt x 212.
+795pt>
+File: handout_files/figure-latex/fiveFTradialplots-5.pdf Graphic file (type pdf
+)
+<use handout_files/figure-latex/fiveFTradialplots-5.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveFTradialplots-5.pdf  us
+ed on input line 1298.
+(pdftex.def)             Requested size: 92.07072pt x 95.2146pt.
+[14 <./handout_files/figure-latex/radialplot-1.pdf> <./handout_files/figure-lat
+ex/fiveFTradialplots-1.pdf> <./handout_files/figure-latex/fiveFTradialplots-2.p
+df> <./handout_files/figure-latex/fiveFTradialplots-3.pdf> <./handout_files/fig
+ure-latex/fiveFTradialplots-4.pdf> <./handout_files/figure-latex/fiveFTradialpl
+ots-5.pdf>]
+<handout_files/figure-latex/fiveHeradialplots-1.pdf, id=390, 206.7725pt x 212.7
+95pt>
+File: handout_files/figure-latex/fiveHeradialplots-1.pdf Graphic file (type pdf
+)
+<use handout_files/figure-latex/fiveHeradialplots-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveHeradialplots-1.pdf  us
+ed on input line 1352.
+(pdftex.def)             Requested size: 92.07184pt x 94.75354pt.
+<handout_files/figure-latex/fiveHeradialplots-2.pdf, id=391, 206.7725pt x 212.7
+95pt>
+File: handout_files/figure-latex/fiveHeradialplots-2.pdf Graphic file (type pdf
+)
+<use handout_files/figure-latex/fiveHeradialplots-2.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveHeradialplots-2.pdf  us
+ed on input line 1352.
+(pdftex.def)             Requested size: 92.07184pt x 94.75354pt.
+<handout_files/figure-latex/fiveHeradialplots-3.pdf, id=392, 206.7725pt x 212.7
+95pt>
+File: handout_files/figure-latex/fiveHeradialplots-3.pdf Graphic file (type pdf
+)
+<use handout_files/figure-latex/fiveHeradialplots-3.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveHeradialplots-3.pdf  us
+ed on input line 1352.
+(pdftex.def)             Requested size: 92.07184pt x 94.75354pt.
+<handout_files/figure-latex/fiveHeradialplots-4.pdf, id=393, 206.7725pt x 212.7
+95pt>
+File: handout_files/figure-latex/fiveHeradialplots-4.pdf Graphic file (type pdf
+)
+<use handout_files/figure-latex/fiveHeradialplots-4.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveHeradialplots-4.pdf  us
+ed on input line 1352.
+(pdftex.def)             Requested size: 92.07184pt x 94.75354pt.
+<handout_files/figure-latex/fiveHeradialplots-5.pdf, id=394, 206.7725pt x 212.7
+95pt>
+File: handout_files/figure-latex/fiveHeradialplots-5.pdf Graphic file (type pdf
+)
+<use handout_files/figure-latex/fiveHeradialplots-5.pdf>
+Package pdftex.def Info: handout_files/figure-latex/fiveHeradialplots-5.pdf  us
+ed on input line 1352.
+(pdftex.def)             Requested size: 92.07184pt x 94.75354pt.
+<handout_files/figure-latex/ternary-1.pdf, id=402, 201.75375pt x 170.6375pt>
+File: handout_files/figure-latex/ternary-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/ternary-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/ternary-1.pdf  used on inpu
+t line 1376.
+(pdftex.def)             Requested size: 92.07208pt x 77.8719pt.
+<handout_files/figure-latex/ternary-2.pdf, id=403, 201.75375pt x 170.6375pt>
+File: handout_files/figure-latex/ternary-2.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/ternary-2.pdf>
+Package pdftex.def Info: handout_files/figure-latex/ternary-2.pdf  used on inpu
+t line 1376.
+(pdftex.def)             Requested size: 92.07208pt x 77.8719pt.
+<handout_files/figure-latex/ternary-3.pdf, id=404, 201.75375pt x 170.6375pt>
+File: handout_files/figure-latex/ternary-3.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/ternary-3.pdf>
+Package pdftex.def Info: handout_files/figure-latex/ternary-3.pdf  used on inpu
+t line 1376.
+(pdftex.def)             Requested size: 92.07208pt x 77.8719pt.
+<handout_files/figure-latex/ternary-4.pdf, id=405, 201.75375pt x 170.6375pt>
+File: handout_files/figure-latex/ternary-4.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/ternary-4.pdf>
+Package pdftex.def Info: handout_files/figure-latex/ternary-4.pdf  used on inpu
+t line 1376.
+(pdftex.def)             Requested size: 92.07208pt x 77.8719pt.
+<handout_files/figure-latex/ternary-5.pdf, id=406, 201.75375pt x 170.6375pt>
+File: handout_files/figure-latex/ternary-5.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/ternary-5.pdf>
+Package pdftex.def Info: handout_files/figure-latex/ternary-5.pdf  used on inpu
+t line 1376.
+(pdftex.def)             Requested size: 92.07208pt x 77.8719pt.
+<handout_files/figure-latex/logratios-1.pdf, id=410, 257.96375pt x 233.87375pt>
+
+File: handout_files/figure-latex/logratios-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/logratios-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/logratios-1.pdf  used on in
+put line 1389.
+(pdftex.def)             Requested size: 92.07175pt x 83.4736pt.
+<handout_files/figure-latex/logratios-2.pdf, id=411, 246.9225pt x 234.8775pt>
+File: handout_files/figure-latex/logratios-2.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/logratios-2.pdf>
+Package pdftex.def Info: handout_files/figure-latex/logratios-2.pdf  used on in
+put line 1389.
+(pdftex.def)             Requested size: 92.0682pt x 87.57709pt.
+<handout_files/figure-latex/logratios-3.pdf, id=412, 247.92625pt x 234.8775pt>
+File: handout_files/figure-latex/logratios-3.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/logratios-3.pdf>
+Package pdftex.def Info: handout_files/figure-latex/logratios-3.pdf  used on in
+put line 1389.
+(pdftex.def)             Requested size: 92.07175pt x 87.22586pt.
+<handout_files/figure-latex/logratios-4.pdf, id=413, 246.9225pt x 234.8775pt>
+File: handout_files/figure-latex/logratios-4.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/logratios-4.pdf>
+Package pdftex.def Info: handout_files/figure-latex/logratios-4.pdf  used on in
+put line 1389.
+(pdftex.def)             Requested size: 92.0682pt x 87.57709pt.
+<handout_files/figure-latex/logratios-5.pdf, id=414, 257.96375pt x 233.87375pt>
+
+File: handout_files/figure-latex/logratios-5.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/logratios-5.pdf>
+Package pdftex.def Info: handout_files/figure-latex/logratios-5.pdf  used on in
+put line 1389.
+(pdftex.def)             Requested size: 92.07175pt x 83.4736pt.
+[15 <./handout_files/figure-latex/fiveHeradialplots-1.pdf> <./handout_files/fig
+ure-latex/fiveHeradialplots-2.pdf> <./handout_files/figure-latex/fiveHeradialpl
+ots-3.pdf> <./handout_files/figure-latex/fiveHeradialplots-4.pdf> <./handout_fi
+les/figure-latex/fiveHeradialplots-5.pdf> <./handout_files/figure-latex/ternary
+-1.pdf> <./handout_files/figure-latex/ternary-2.pdf> <./handout_files/figure-la
+tex/ternary-3.pdf> <./handout_files/figure-latex/ternary-4.pdf> <./handout_file
+s/figure-latex/ternary-5.pdf>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1417.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\chi' on input line 1417.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1417.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1417.
+
+<handout_files/figure-latex/chisquarelegend-1.pdf, id=525, 238.8925pt x 233.873
+75pt>
+File: handout_files/figure-latex/chisquarelegend-1.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/chisquarelegend-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/chisquarelegend-1.pdf  used
+ on input line 1453.
+(pdftex.def)             Requested size: 115.56017pt x 113.13242pt.
+<handout_files/figure-latex/chisquarelegend-2.pdf, id=526, 238.8925pt x 233.873
+75pt>
+File: handout_files/figure-latex/chisquarelegend-2.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/chisquarelegend-2.pdf>
+Package pdftex.def Info: handout_files/figure-latex/chisquarelegend-2.pdf  used
+ on input line 1453.
+(pdftex.def)             Requested size: 115.56017pt x 113.13242pt.
+<handout_files/figure-latex/chisquarelegend-3.pdf, id=527, 232.87pt x 219.82124
+pt>
+File: handout_files/figure-latex/chisquarelegend-3.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/chisquarelegend-3.pdf>
+Package pdftex.def Info: handout_files/figure-latex/chisquarelegend-3.pdf  used
+ on input line 1453.
+(pdftex.def)             Requested size: 115.5606pt x 109.0852pt.
+<handout_files/figure-latex/chisquarelegend-4.pdf, id=528, 235.88126pt x 219.82
+124pt>
+File: handout_files/figure-latex/chisquarelegend-4.pdf Graphic file (type pdf)
+<use handout_files/figure-latex/chisquarelegend-4.pdf>
+Package pdftex.def Info: handout_files/figure-latex/chisquarelegend-4.pdf  used
+ on input line 1453.
+(pdftex.def)             Requested size: 115.56122pt x 107.69322pt.
+[16 <./handout_files/figure-latex/logratios-1.pdf> <./handout_files/figure-late
+x/logratios-2.pdf> <./handout_files/figure-latex/logratios-3.pdf> <./handout_fi
+les/figure-latex/logratios-4.pdf> <./handout_files/figure-latex/logratios-5.pdf
+>] [17 <./handout_files/figure-latex/chisquarelegend-1.pdf> <./handout_files/fi
+gure-latex/chisquarelegend-2.pdf> <./handout_files/figure-latex/chisquarelegend
+-3.pdf> <./handout_files/figure-latex/chisquarelegend-4.pdf>] [18]
+<handout_files/figure-latex/unnamed-chunk-67-1.pdf, id=655, 345.29pt x 281.05pt
+>
+File: handout_files/figure-latex/unnamed-chunk-67-1.pdf Graphic file (type pdf)
+
+<use handout_files/figure-latex/unnamed-chunk-67-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-67-1.pdf  use
+d on input line 1638.
+(pdftex.def)             Requested size: 164.42014pt x 133.83034pt.
+[19 <./handout_files/figure-latex/unnamed-chunk-67-1.pdf>]
+<handout_files/figure-latex/unnamed-chunk-71-1.pdf, id=672, 346.29375pt x 282.0
+5376pt>
+File: handout_files/figure-latex/unnamed-chunk-71-1.pdf Graphic file (type pdf)
+
+<use handout_files/figure-latex/unnamed-chunk-71-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-71-1.pdf  use
+d on input line 1725.
+(pdftex.def)             Requested size: 153.14645pt x 124.73668pt.
+<handout_files/figure-latex/unnamed-chunk-71-2.pdf, id=673, 346.29375pt x 282.0
+5376pt>
+File: handout_files/figure-latex/unnamed-chunk-71-2.pdf Graphic file (type pdf)
+
+<use handout_files/figure-latex/unnamed-chunk-71-2.pdf>
+Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-71-2.pdf  use
+d on input line 1725.
+(pdftex.def)             Requested size: 153.14645pt x 124.73668pt.
+<handout_files/figure-latex/unnamed-chunk-71-3.pdf, id=674, 346.29375pt x 282.0
+5376pt>
+File: handout_files/figure-latex/unnamed-chunk-71-3.pdf Graphic file (type pdf)
+
+<use handout_files/figure-latex/unnamed-chunk-71-3.pdf>
+Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-71-3.pdf  use
+d on input line 1725.
+(pdftex.def)             Requested size: 153.14645pt x 124.73668pt.
+[20 <./handout_files/figure-latex/unnamed-chunk-71-1.pdf> <./handout_files/figu
+re-latex/unnamed-chunk-71-2.pdf> <./handout_files/figure-latex/unnamed-chunk-71
+-3.pdf>]
+<handout_files/figure-latex/unnamed-chunk-74-1.pdf, id=715, 309.155pt x 258.967
+5pt>
+File: handout_files/figure-latex/unnamed-chunk-74-1.pdf Graphic file (type pdf)
+
+<use handout_files/figure-latex/unnamed-chunk-74-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-74-1.pdf  use
+d on input line 1805.
+(pdftex.def)             Requested size: 115.56017pt x 96.80038pt.
+<handout_files/figure-latex/unnamed-chunk-74-2.pdf, id=716, 311.1625pt x 263.98
+625pt>
+File: handout_files/figure-latex/unnamed-chunk-74-2.pdf Graphic file (type pdf)
+
+<use handout_files/figure-latex/unnamed-chunk-74-2.pdf>
+Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-74-2.pdf  use
+d on input line 1805.
+(pdftex.def)             Requested size: 115.56038pt x 98.03993pt.
+<handout_files/figure-latex/unnamed-chunk-74-3.pdf, id=717, 304.13625pt x 258.9
+675pt>
+File: handout_files/figure-latex/unnamed-chunk-74-3.pdf Graphic file (type pdf)
+
+<use handout_files/figure-latex/unnamed-chunk-74-3.pdf>
+Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-74-3.pdf  use
+d on input line 1805.
+(pdftex.def)             Requested size: 115.55905pt x 98.3968pt.
+<handout_files/figure-latex/unnamed-chunk-74-4.pdf, id=718, 310.15875pt x 260.9
+75pt>
+File: handout_files/figure-latex/unnamed-chunk-74-4.pdf Graphic file (type pdf)
+
+<use handout_files/figure-latex/unnamed-chunk-74-4.pdf>
+Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-74-4.pdf  use
+d on input line 1805.
+(pdftex.def)             Requested size: 115.55675pt x 97.23222pt.
+[21 <./handout_files/figure-latex/unnamed-chunk-74-1.pdf> <./handout_files/figu
+re-latex/unnamed-chunk-74-2.pdf> <./handout_files/figure-latex/unnamed-chunk-74
+-3.pdf> <./handout_files/figure-latex/unnamed-chunk-74-4.pdf>]
+<handout_files/figure-latex/unnamed-chunk-81-1.pdf, id=760, 282.05376pt x 289.0
+8pt>
+File: handout_files/figure-latex/unnamed-chunk-81-1.pdf Graphic file (type pdf)
+
+<use handout_files/figure-latex/unnamed-chunk-81-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-81-1.pdf  use
+d on input line 1941.
+(pdftex.def)             Requested size: 140.92754pt x 144.43819pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 1939--1949
+[]$[]$ [] 
+ []
+
+[22 <./handout_files/figure-latex/unnamed-chunk-81-1.pdf>]
+<handout_files/figure-latex/unnamed-chunk-86-1.pdf, id=779, 251.94125pt x 174.6
+525pt>
+File: handout_files/figure-latex/unnamed-chunk-86-1.pdf Graphic file (type pdf)
+
+<use handout_files/figure-latex/unnamed-chunk-86-1.pdf>
+Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-86-1.pdf  use
+d on input line 2041.
+(pdftex.def)             Requested size: 164.41724pt x 113.97849pt.
+[23 <./handout_files/figure-latex/unnamed-chunk-86-1.pdf>] [24] (./handout.aux)
+ ) 
+Here is how much of TeX's memory you used:
+ 16190 strings out of 478287
+ 273922 string characters out of 5849289
+ 593490 words of memory out of 5000000
+ 33759 multiletter control sequences out of 15000+600000
+ 541632 words of font info for 171 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 74i,16n,77p,1004b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
+thex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/f
+onts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texmf/fonts/type1/public/lm/l
+mtti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sam10.pfb>
+Output written on handout.pdf (24 pages, 1134490 bytes).
+PDF statistics:
+ 1025 PDF objects out of 1200 (max. 8388607)
+ 791 compressed objects within 8 object streams
+ 135 named destinations out of 1000 (max. 500000)
+ 39309 words of extra memory for PDF output out of 42996 (max. 10000000)
+
