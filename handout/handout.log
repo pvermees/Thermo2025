@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.26)  18 SEP 2025 03:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.26)  19 SEP 2025 13:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -794,31 +794,34 @@ File: handout_files/figure-latex/ternary-5.pdf Graphic file (type pdf)
 Package pdftex.def Info: handout_files/figure-latex/ternary-5.pdf  used on inpu
 t line 1376.
 (pdftex.def)             Requested size: 92.07208pt x 77.8719pt.
-<handout_files/figure-latex/logratios-1.pdf, id=410, 257.96375pt x 233.87375pt>
+<handout_files/figure-latex/logratios-1.pdf, id=410, 249.93375pt x 233.87375pt>
 
 File: handout_files/figure-latex/logratios-1.pdf Graphic file (type pdf)
 <use handout_files/figure-latex/logratios-1.pdf>
 Package pdftex.def Info: handout_files/figure-latex/logratios-1.pdf  used on in
 put line 1389.
-(pdftex.def)             Requested size: 92.07175pt x 83.4736pt.
-<handout_files/figure-latex/logratios-2.pdf, id=411, 246.9225pt x 234.8775pt>
+(pdftex.def)             Requested size: 92.06978pt x 86.15364pt.
+<handout_files/figure-latex/logratios-2.pdf, id=411, 247.92625pt x 233.87375pt>
+
 File: handout_files/figure-latex/logratios-2.pdf Graphic file (type pdf)
 <use handout_files/figure-latex/logratios-2.pdf>
 Package pdftex.def Info: handout_files/figure-latex/logratios-2.pdf  used on in
 put line 1389.
-(pdftex.def)             Requested size: 92.0682pt x 87.57709pt.
-<handout_files/figure-latex/logratios-3.pdf, id=412, 247.92625pt x 234.8775pt>
+(pdftex.def)             Requested size: 92.07175pt x 86.85309pt.
+<handout_files/figure-latex/logratios-3.pdf, id=412, 257.96375pt x 233.87375pt>
+
 File: handout_files/figure-latex/logratios-3.pdf Graphic file (type pdf)
 <use handout_files/figure-latex/logratios-3.pdf>
 Package pdftex.def Info: handout_files/figure-latex/logratios-3.pdf  used on in
 put line 1389.
-(pdftex.def)             Requested size: 92.07175pt x 87.22586pt.
-<handout_files/figure-latex/logratios-4.pdf, id=413, 246.9225pt x 234.8775pt>
+(pdftex.def)             Requested size: 92.07175pt x 83.4736pt.
+<handout_files/figure-latex/logratios-4.pdf, id=413, 253.94875pt x 233.87375pt>
+
 File: handout_files/figure-latex/logratios-4.pdf Graphic file (type pdf)
 <use handout_files/figure-latex/logratios-4.pdf>
 Package pdftex.def Info: handout_files/figure-latex/logratios-4.pdf  used on in
 put line 1389.
-(pdftex.def)             Requested size: 92.0682pt x 87.57709pt.
+(pdftex.def)             Requested size: 92.07246pt x 84.794pt.
 <handout_files/figure-latex/logratios-5.pdf, id=414, 257.96375pt x 233.87375pt>
 
 File: handout_files/figure-latex/logratios-5.pdf Graphic file (type pdf)
@@ -849,48 +852,48 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1417.
 
-<handout_files/figure-latex/chisquarelegend-1.pdf, id=525, 238.8925pt x 233.873
-75pt>
+<handout_files/figure-latex/chisquarelegend-1.pdf, id=525, 239.89626pt x 233.87
+375pt>
 File: handout_files/figure-latex/chisquarelegend-1.pdf Graphic file (type pdf)
 <use handout_files/figure-latex/chisquarelegend-1.pdf>
 Package pdftex.def Info: handout_files/figure-latex/chisquarelegend-1.pdf  used
  on input line 1453.
-(pdftex.def)             Requested size: 115.56017pt x 113.13242pt.
-<handout_files/figure-latex/chisquarelegend-2.pdf, id=526, 238.8925pt x 233.873
-75pt>
+(pdftex.def)             Requested size: 115.56252pt x 112.66136pt.
+<handout_files/figure-latex/chisquarelegend-2.pdf, id=526, 239.89626pt x 233.87
+375pt>
 File: handout_files/figure-latex/chisquarelegend-2.pdf Graphic file (type pdf)
 <use handout_files/figure-latex/chisquarelegend-2.pdf>
 Package pdftex.def Info: handout_files/figure-latex/chisquarelegend-2.pdf  used
  on input line 1453.
-(pdftex.def)             Requested size: 115.56017pt x 113.13242pt.
-<handout_files/figure-latex/chisquarelegend-3.pdf, id=527, 232.87pt x 219.82124
-pt>
+(pdftex.def)             Requested size: 115.56252pt x 112.66136pt.
+<handout_files/figure-latex/chisquarelegend-3.pdf, id=527, 239.89626pt x 204.76
+5pt>
 File: handout_files/figure-latex/chisquarelegend-3.pdf Graphic file (type pdf)
 <use handout_files/figure-latex/chisquarelegend-3.pdf>
 Package pdftex.def Info: handout_files/figure-latex/chisquarelegend-3.pdf  used
  on input line 1453.
-(pdftex.def)             Requested size: 115.5606pt x 109.0852pt.
-<handout_files/figure-latex/chisquarelegend-4.pdf, id=528, 235.88126pt x 219.82
-124pt>
+(pdftex.def)             Requested size: 115.56252pt x 98.63913pt.
+<handout_files/figure-latex/chisquarelegend-4.pdf, id=528, 236.885pt x 219.8212
+4pt>
 File: handout_files/figure-latex/chisquarelegend-4.pdf Graphic file (type pdf)
 <use handout_files/figure-latex/chisquarelegend-4.pdf>
 Package pdftex.def Info: handout_files/figure-latex/chisquarelegend-4.pdf  used
  on input line 1453.
-(pdftex.def)             Requested size: 115.56122pt x 107.69322pt.
+(pdftex.def)             Requested size: 115.56139pt x 107.23705pt.
 [16 <./handout_files/figure-latex/logratios-1.pdf> <./handout_files/figure-late
 x/logratios-2.pdf> <./handout_files/figure-latex/logratios-3.pdf> <./handout_fi
 les/figure-latex/logratios-4.pdf> <./handout_files/figure-latex/logratios-5.pdf
 >] [17 <./handout_files/figure-latex/chisquarelegend-1.pdf> <./handout_files/fi
 gure-latex/chisquarelegend-2.pdf> <./handout_files/figure-latex/chisquarelegend
 -3.pdf> <./handout_files/figure-latex/chisquarelegend-4.pdf>] [18]
-<handout_files/figure-latex/unnamed-chunk-67-1.pdf, id=655, 345.29pt x 281.05pt
->
+<handout_files/figure-latex/unnamed-chunk-67-1.pdf, id=655, 344.28625pt x 276.0
+3125pt>
 File: handout_files/figure-latex/unnamed-chunk-67-1.pdf Graphic file (type pdf)
 
 <use handout_files/figure-latex/unnamed-chunk-67-1.pdf>
 Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-67-1.pdf  use
 d on input line 1638.
-(pdftex.def)             Requested size: 164.42014pt x 133.83034pt.
+(pdftex.def)             Requested size: 164.41498pt x 131.81958pt.
 [19 <./handout_files/figure-latex/unnamed-chunk-67-1.pdf>]
 <handout_files/figure-latex/unnamed-chunk-71-1.pdf, id=672, 346.29375pt x 282.0
 5376pt>
@@ -898,7 +901,7 @@ File: handout_files/figure-latex/unnamed-chunk-71-1.pdf Graphic file (type pdf)
 
 <use handout_files/figure-latex/unnamed-chunk-71-1.pdf>
 Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-71-1.pdf  use
-d on input line 1725.
+d on input line 1724.
 (pdftex.def)             Requested size: 153.14645pt x 124.73668pt.
 <handout_files/figure-latex/unnamed-chunk-71-2.pdf, id=673, 346.29375pt x 282.0
 5376pt>
@@ -906,7 +909,7 @@ File: handout_files/figure-latex/unnamed-chunk-71-2.pdf Graphic file (type pdf)
 
 <use handout_files/figure-latex/unnamed-chunk-71-2.pdf>
 Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-71-2.pdf  use
-d on input line 1725.
+d on input line 1724.
 (pdftex.def)             Requested size: 153.14645pt x 124.73668pt.
 <handout_files/figure-latex/unnamed-chunk-71-3.pdf, id=674, 346.29375pt x 282.0
 5376pt>
@@ -914,7 +917,7 @@ File: handout_files/figure-latex/unnamed-chunk-71-3.pdf Graphic file (type pdf)
 
 <use handout_files/figure-latex/unnamed-chunk-71-3.pdf>
 Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-71-3.pdf  use
-d on input line 1725.
+d on input line 1724.
 (pdftex.def)             Requested size: 153.14645pt x 124.73668pt.
 [20 <./handout_files/figure-latex/unnamed-chunk-71-1.pdf> <./handout_files/figu
 re-latex/unnamed-chunk-71-2.pdf> <./handout_files/figure-latex/unnamed-chunk-71
@@ -925,7 +928,7 @@ File: handout_files/figure-latex/unnamed-chunk-74-1.pdf Graphic file (type pdf)
 
 <use handout_files/figure-latex/unnamed-chunk-74-1.pdf>
 Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-74-1.pdf  use
-d on input line 1805.
+d on input line 1804.
 (pdftex.def)             Requested size: 115.56017pt x 96.80038pt.
 <handout_files/figure-latex/unnamed-chunk-74-2.pdf, id=716, 311.1625pt x 263.98
 625pt>
@@ -933,7 +936,7 @@ File: handout_files/figure-latex/unnamed-chunk-74-2.pdf Graphic file (type pdf)
 
 <use handout_files/figure-latex/unnamed-chunk-74-2.pdf>
 Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-74-2.pdf  use
-d on input line 1805.
+d on input line 1804.
 (pdftex.def)             Requested size: 115.56038pt x 98.03993pt.
 <handout_files/figure-latex/unnamed-chunk-74-3.pdf, id=717, 304.13625pt x 258.9
 675pt>
@@ -941,7 +944,7 @@ File: handout_files/figure-latex/unnamed-chunk-74-3.pdf Graphic file (type pdf)
 
 <use handout_files/figure-latex/unnamed-chunk-74-3.pdf>
 Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-74-3.pdf  use
-d on input line 1805.
+d on input line 1804.
 (pdftex.def)             Requested size: 115.55905pt x 98.3968pt.
 <handout_files/figure-latex/unnamed-chunk-74-4.pdf, id=718, 310.15875pt x 260.9
 75pt>
@@ -949,7 +952,7 @@ File: handout_files/figure-latex/unnamed-chunk-74-4.pdf Graphic file (type pdf)
 
 <use handout_files/figure-latex/unnamed-chunk-74-4.pdf>
 Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-74-4.pdf  use
-d on input line 1805.
+d on input line 1804.
 (pdftex.def)             Requested size: 115.55675pt x 97.23222pt.
 [21 <./handout_files/figure-latex/unnamed-chunk-74-1.pdf> <./handout_files/figu
 re-latex/unnamed-chunk-74-2.pdf> <./handout_files/figure-latex/unnamed-chunk-74
@@ -960,10 +963,10 @@ File: handout_files/figure-latex/unnamed-chunk-81-1.pdf Graphic file (type pdf)
 
 <use handout_files/figure-latex/unnamed-chunk-81-1.pdf>
 Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-81-1.pdf  use
-d on input line 1941.
+d on input line 1940.
 (pdftex.def)             Requested size: 140.92754pt x 144.43819pt.
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 1939--1949
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 1938--1948
 []$[]$ [] 
  []
 
@@ -974,7 +977,7 @@ File: handout_files/figure-latex/unnamed-chunk-86-1.pdf Graphic file (type pdf)
 
 <use handout_files/figure-latex/unnamed-chunk-86-1.pdf>
 Package pdftex.def Info: handout_files/figure-latex/unnamed-chunk-86-1.pdf  use
-d on input line 2041.
+d on input line 2040.
 (pdftex.def)             Requested size: 164.41724pt x 113.97849pt.
 [23 <./handout_files/figure-latex/unnamed-chunk-86-1.pdf>] [24] (./handout.aux)
  ) 
@@ -1005,7 +1008,7 @@ c/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/
 texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mtti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sam10.pfb>
-Output written on handout.pdf (24 pages, 1134490 bytes).
+Output written on handout.pdf (24 pages, 1134148 bytes).
 PDF statistics:
  1025 PDF objects out of 1200 (max. 8388607)
  791 compressed objects within 8 object streams

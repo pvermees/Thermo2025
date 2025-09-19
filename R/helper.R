@@ -17,7 +17,7 @@ getpop <- function(pop=1,tt,sigma,prop,
                    ThU=c(1,0.1),nU=c(10000,0.3),
                    from=20,to=500){
     if (pop==1){
-        if (missing(tt)) tt <- 100
+        if (missing(tt) || length(tt)!=1) tt <- 100
         sigma <- 0
         prop <- 1
         trunc <- FALSE

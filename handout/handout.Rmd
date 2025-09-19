@@ -477,7 +477,7 @@ solution but can be solved iteratively. Error propagation is done by
 first order Taylor approximation:
 \begin{equation}
 s[\hat{t}] = 
-\frac{\sqrt{a(\hat{t})^2\,s[\mbox{U}]^2 + 2\,a\,(\hat{t})\,b(\hat{t})\,s[\mbox{U,Th}] + b(\hat{t})^2\,s[\mbox{Th}]^2 + s[\mbox{He}]^2}}
+\frac{\sqrt{a(\hat{t})^2\,s[\mbox{U}]^2 + 2\,a(\hat{t})\,b(\hat{t})\,s[\mbox{U,Th}] + b(\hat{t})^2\,s[\mbox{Th}]^2 + s[\mbox{He}]^2}}
      {8\,\frac{137.818}{138.818}\,\lambda_{238}\,e^{\lambda_{238}\hat{t}} +
       7\,\frac{\lambda_{235}}{138.818}\,e^{\lambda_{235}\hat{t}}}
 \label{eq:stHe}
@@ -959,7 +959,7 @@ $N_s + N_i$-values, left hand side of the radial plot).
 \end{minipage}
 \end{figure}
 
-Plotting five random samples from the synthetic populations of \ref{fig:fivepops} on radial plots (Figure \ref{fig:fiveFTradialplots}) preserves the bimodality of populations 3, 4 and 5 better than the KDEs and CADs of Figures \ref{fig:fiveFTsamples2} and \ref{fig:fiveFTcads}.
+Plotting five random samples from the synthetic populations of Figure \ref{fig:fivepops} on radial plots (Figure \ref{fig:fiveFTradialplots}) preserves the bimodality of populations 3, 4 and 5 better than the KDEs and CADs of Figures \ref{fig:fiveFTsamples2} and \ref{fig:fiveFTcads}.
 
 \begin{figure}[H]
 ```{r fiveFTradialplots, fig.width=3, fig.height=3, out.width = "19.6%", eval=TRUE, echo=FALSE}
